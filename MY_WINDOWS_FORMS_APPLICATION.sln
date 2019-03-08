@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MY_WINDOWS_FORMS_APPLICATIO
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dtx", "Dtx\Dtx.csproj", "{9C758DA6-D143-4502-B7D3-664AFB7CE896}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{A51FC0E9-0C85-4BAD-832B-59F77CF4DA32}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{9C758DA6-D143-4502-B7D3-664AFB7CE896}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C758DA6-D143-4502-B7D3-664AFB7CE896}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C758DA6-D143-4502-B7D3-664AFB7CE896}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A51FC0E9-0C85-4BAD-832B-59F77CF4DA32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A51FC0E9-0C85-4BAD-832B-59F77CF4DA32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A51FC0E9-0C85-4BAD-832B-59F77CF4DA32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A51FC0E9-0C85-4BAD-832B-59F77CF4DA32}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
