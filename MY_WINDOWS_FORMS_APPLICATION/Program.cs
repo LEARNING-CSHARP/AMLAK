@@ -1,22 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace MY_WINDOWS_FORMS_APPLICATION
+﻿namespace MY_WINDOWS_FORMS_APPLICATION
 {
-	static class Program
+	internal static class Program
 	{
-		/// <summary>
-		/// The main entry point for the application.
-		/// </summary>
-		[STAThread]
+		static Program()
+		{
+		}
+
+		[System.STAThread]
 		static void Main()
 		{
-			Application.EnableVisualStyles();
-			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new Form1());
+			// **************************************************
+			System.Windows.Forms.Application.EnableVisualStyles();
+			System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
+			// **************************************************
+
+			// **************************************************
+			RegisterForm startupForm = new RegisterForm();
+
+			System.Windows.Forms.Application.Run(startupForm);
+
+			if (startupForm != null)
+			{
+				if (startupForm.IsDisposed == false)
+				{
+					startupForm.Dispose();
+				}
+
+				startupForm = null;
+			}
+			// **************************************************
 		}
 	}
 }
