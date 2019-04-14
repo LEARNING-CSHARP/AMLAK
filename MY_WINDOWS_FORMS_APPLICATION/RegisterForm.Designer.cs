@@ -39,7 +39,7 @@
 			this.usernameLabel.AutoSize = true;
 			this.usernameLabel.Location = new System.Drawing.Point(12, 15);
 			this.usernameLabel.Name = "usernameLabel";
-			this.usernameLabel.Size = new System.Drawing.Size(76, 13);
+			this.usernameLabel.Size = new System.Drawing.Size(75, 13);
 			this.usernameLabel.TabIndex = 0;
 			this.usernameLabel.Text = "&شناسه کاربری";
 			// 
@@ -48,7 +48,7 @@
 			this.passwordLabel.AutoSize = true;
 			this.passwordLabel.Location = new System.Drawing.Point(12, 41);
 			this.passwordLabel.Name = "passwordLabel";
-			this.passwordLabel.Size = new System.Drawing.Size(44, 13);
+			this.passwordLabel.Size = new System.Drawing.Size(39, 13);
 			this.passwordLabel.TabIndex = 2;
 			this.passwordLabel.Text = "&گذرواژه";
 			// 
@@ -57,7 +57,7 @@
 			this.fullNameLabel.AutoSize = true;
 			this.fullNameLabel.Location = new System.Drawing.Point(12, 67);
 			this.fullNameLabel.Name = "fullNameLabel";
-			this.fullNameLabel.Size = new System.Drawing.Size(94, 13);
+			this.fullNameLabel.Size = new System.Drawing.Size(89, 13);
 			this.fullNameLabel.TabIndex = 4;
 			this.fullNameLabel.Text = "&نام و نام خانوادگی";
 			// 
@@ -68,7 +68,7 @@
 			this.usernameTextBox.Location = new System.Drawing.Point(112, 12);
 			this.usernameTextBox.MaxLength = 20;
 			this.usernameTextBox.Name = "usernameTextBox";
-			this.usernameTextBox.Size = new System.Drawing.Size(318, 20);
+			this.usernameTextBox.Size = new System.Drawing.Size(318, 21);
 			this.usernameTextBox.TabIndex = 1;
 			// 
 			// passwordTextBox
@@ -78,7 +78,7 @@
 			this.passwordTextBox.Location = new System.Drawing.Point(112, 38);
 			this.passwordTextBox.MaxLength = 40;
 			this.passwordTextBox.Name = "passwordTextBox";
-			this.passwordTextBox.Size = new System.Drawing.Size(318, 20);
+			this.passwordTextBox.Size = new System.Drawing.Size(318, 21);
 			this.passwordTextBox.TabIndex = 3;
 			this.passwordTextBox.UseSystemPasswordChar = true;
 			// 
@@ -89,7 +89,7 @@
 			this.fullNameTextBox.Location = new System.Drawing.Point(112, 64);
 			this.fullNameTextBox.MaxLength = 50;
 			this.fullNameTextBox.Name = "fullNameTextBox";
-			this.fullNameTextBox.Size = new System.Drawing.Size(318, 20);
+			this.fullNameTextBox.Size = new System.Drawing.Size(318, 21);
 			this.fullNameTextBox.TabIndex = 5;
 			// 
 			// registerButton
@@ -104,12 +104,14 @@
 			// 
 			// resetButton
 			// 
+			this.resetButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.resetButton.Location = new System.Drawing.Point(193, 90);
 			this.resetButton.Name = "resetButton";
 			this.resetButton.Size = new System.Drawing.Size(75, 23);
 			this.resetButton.TabIndex = 7;
 			this.resetButton.Text = "&حالت اولیه";
 			this.resetButton.UseVisualStyleBackColor = true;
+			this.resetButton.Click += new System.EventHandler(this.ResetButton_Click);
 			// 
 			// loginButton
 			// 
@@ -119,6 +121,7 @@
 			this.loginButton.TabIndex = 8;
 			this.loginButton.Text = "&ورود";
 			this.loginButton.UseVisualStyleBackColor = true;
+			this.loginButton.Click += new System.EventHandler(this.LoginButton_Click);
 			// 
 			// exitButton
 			// 
@@ -128,6 +131,7 @@
 			this.exitButton.TabIndex = 9;
 			this.exitButton.Text = "&خروج";
 			this.exitButton.UseVisualStyleBackColor = true;
+			this.exitButton.Click += new System.EventHandler(this.ExitButton_Click);
 			// 
 			// RegisterForm
 			// 
@@ -149,8 +153,7 @@
 			this.MaximumSize = new System.Drawing.Size(800, 165);
 			this.MinimumSize = new System.Drawing.Size(458, 165);
 			this.Name = "RegisterForm";
-			this.Text = "ثبت‌نام";
-			this.Load += new System.EventHandler(this.RegisterForm_Load);
+			this.Text = "ثبت ‌نام";
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

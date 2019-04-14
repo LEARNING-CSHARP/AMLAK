@@ -9,10 +9,9 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 			InitializeComponent();
 		}
 
-		private void RegisterForm_Load(object sender, System.EventArgs e)
-		{
-		}
+		public LoginForm loginForm;
 
+		#region Register Button
 		private void RegisterButton_Click(object sender, System.EventArgs e)
 		{
 			// **************************************************
@@ -103,5 +102,46 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 			Dtx.Windows.Forms.MessageBox.ShowInformation(message);
 			// **************************************************
 		}
+		#endregion /Register Button
+
+		#region Reset Button
+		private void ResetButton_Click(object sender, System.EventArgs e)
+		{
+			usernameTextBox.Text = string.Empty;
+			usernameTextBox.Focus();
+			passwordTextBox.Text = string.Empty;
+			fullNameTextBox.Text = string.Empty;
+		}
+		#endregion /Reset Button
+
+		#region Login Button
+		private void LoginButton_Click(object sender, System.EventArgs e)
+		{
+			if (loginForm==null || loginForm.IsDisposed==true)
+			{
+				loginForm = new LoginForm();
+				loginForm.Show();
+				this.Hide();
+			}
+		}
+		#endregion /Login Button
+
+		#region Exit Button
+		private void ExitButton_Click(object sender, System.EventArgs e)
+		{
+			System.Windows.Forms.DialogResult result;
+
+			result = System.Windows.Forms.MessageBox.Show(text: "آیا قصد خروج از برنامه را دارید؟", caption: "خروج",
+				buttons: System.Windows.Forms.MessageBoxButtons.YesNo,
+				icon: System.Windows.Forms.MessageBoxIcon.Question,
+				defaultButton: System.Windows.Forms.MessageBoxDefaultButton.Button2,
+				options: System.Windows.Forms.MessageBoxOptions.RightAlign | System.Windows.Forms.MessageBoxOptions.RtlReading);
+
+			if (result == System.Windows.Forms.DialogResult.Yes)
+			{
+				System.Windows.Forms.Application.Exit();
+			}
+		}
+		#endregion /Exit Button
 	}
 }

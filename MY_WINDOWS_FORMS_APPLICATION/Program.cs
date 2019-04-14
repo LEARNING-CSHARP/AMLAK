@@ -5,7 +5,9 @@
 		static Program()
 		{
 		}
-
+		// **************************************************
+		public static RegisterForm startupForm;
+		// **************************************************
 		[System.STAThread]
 		static void Main()
 		{
@@ -13,9 +15,8 @@
 			System.Windows.Forms.Application.EnableVisualStyles();
 			System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
 			// **************************************************
-
+			startupForm = new RegisterForm();
 			// **************************************************
-			RegisterForm startupForm = new RegisterForm();
 
 			System.Windows.Forms.Application.Run(startupForm);
 
