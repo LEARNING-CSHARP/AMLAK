@@ -7,6 +7,35 @@
 		}
 
 		// **************************************************
+		public static Models.User AuthenticatedUser { get; set; }
+		// **************************************************
+
+		// **************************************************
+		private static MainForm mainForm;
+
+		public static MainForm MainForm
+		{
+			get
+			{
+				if (mainForm == null)
+				{
+					mainForm =
+						new MainForm();
+				}
+
+				return mainForm;
+			}
+		}
+
+		public static void ShowMainForm()
+		{
+			MainForm.Initialize();
+
+			MainForm.Show();
+		}
+		// **************************************************
+
+		// **************************************************
 		private static LoginForm loginForm;
 
 		public static LoginForm LoginForm
@@ -21,6 +50,15 @@
 
 				return loginForm;
 			}
+		}
+
+		public static void ShowLoginForm()
+		{
+			AuthenticatedUser = null;
+
+			LoginForm.Initialize();
+
+			LoginForm.Show();
 		}
 		// **************************************************
 
@@ -39,6 +77,13 @@
 
 				return registerForm;
 			}
+		}
+
+		public static void ShowRegisterForm()
+		{
+			RegisterForm.Initialize();
+
+			RegisterForm.Show();
 		}
 		// **************************************************
 

@@ -11,6 +11,10 @@
 		// **********
 
 		// **********
+		public bool IsAdministrator { get; set; }
+		// **********
+
+		// **********
 		[System.ComponentModel.DataAnnotations.Required
 			(AllowEmptyStrings = false)]
 

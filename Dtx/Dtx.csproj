@@ -52,8 +52,20 @@
     <Compile Include="Windows\Forms\Label.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Windows\Forms\MenuStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Windows\Forms\MessageBox.cs" />
+    <Compile Include="Windows\Forms\StatusStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Windows\Forms\TextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Windows\Forms\ToolStripMenuItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Windows\Forms\ToolStripStatusLabel.cs">
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>

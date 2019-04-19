@@ -12,80 +12,133 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 		#region LoginForm_Load
 		private void LoginForm_Load(object sender, System.EventArgs e)
 		{
+			Initialize();
 		}
 		#endregion /LoginForm_Load
+
+		public void Initialize()
+		{
+			usernameTextBox.Text = string.Empty;
+			passwordTextBox.Text = string.Empty;
+
+			usernameTextBox.Focus();
+		}
 
 		#region LoginButton_Click
 		private void LoginButton_Click(object sender, System.EventArgs e)
 		{
-			// **************************************************
-			// Validation
-			// **************************************************
-			string errorMessages = string.Empty;
+			Models.DatabaseContext databaseContext = null;
 
-			if (string.IsNullOrWhiteSpace(usernameTextBox.Text))
+			try
 			{
-				errorMessages =
-					"لطفا شناسه کاربری را وارد نمایید!";
+				databaseContext =
+					new Models.DatabaseContext();
 
-				usernameTextBox.Text = string.Empty;
-			}
+				// **************************************************
+				// Validation
+				// **************************************************
+				string errorMessages = string.Empty;
 
-			if (string.IsNullOrWhiteSpace(passwordTextBox.Text))
-			{
+				if (string.IsNullOrWhiteSpace(usernameTextBox.Text))
+				{
+					errorMessages =
+						"لطفا شناسه کاربری را وارد نمایید!";
+
+					usernameTextBox.Text = string.Empty;
+				}
+
+				if (string.IsNullOrWhiteSpace(passwordTextBox.Text))
+				{
+					if (errorMessages != string.Empty)
+					{
+						errorMessages +=
+							System.Environment.NewLine;
+					}
+
+					errorMessages +=
+						"لطفا گذرواژه را وارد نمایید!";
+
+					passwordTextBox.Text = string.Empty;
+				}
+
 				if (errorMessages != string.Empty)
 				{
-					errorMessages +=
-						System.Environment.NewLine;
+					if (usernameTextBox.Text == string.Empty)
+					{
+						usernameTextBox.Focus();
+					}
+					else
+					{
+						passwordTextBox.Focus();
+					}
+
+					Dtx.Windows.Forms.MessageBox.ShowError(errorMessages);
+
+					return;
 				}
+				// **************************************************
+				// /Validation
+				// **************************************************
 
-				errorMessages +=
-					"لطفا گذرواژه را وارد نمایید!";
+				Models.User foundedUser =
+					databaseContext.Users
+					.Where(current => string.Compare(current.Username, usernameTextBox.Text, true) == 0)
+					.FirstOrDefault();
 
-				passwordTextBox.Text = string.Empty;
-			}
-
-			if (errorMessages != string.Empty)
-			{
-				if (usernameTextBox.Text == string.Empty)
+				if (foundedUser == null)
 				{
+					string errorMessage =
+						"شناسه‌کاربری و/یا گذرواژه صحیح نمی‌باشد!";
+
+					Dtx.Windows.Forms.MessageBox.ShowError(errorMessage);
+
 					usernameTextBox.Focus();
+
+					return;
 				}
-				else
+
+				if (string.Compare(foundedUser.Password, passwordTextBox.Text, ignoreCase: false) != 0)
 				{
-					passwordTextBox.Focus();
+					string errorMessage =
+						"شناسه‌کاربری و/یا گذرواژه صحیح نمی‌باشد!";
+
+					Dtx.Windows.Forms.MessageBox.ShowError(errorMessage);
+
+					usernameTextBox.Focus();
+
+					return;
 				}
 
-				Dtx.Windows.Forms.MessageBox.ShowError(errorMessages);
+				if (foundedUser.IsActive == false)
+				{
+					string errorMessage =
+						"کاربر گرامی، دسترسی شما به سامانه تا اطلاع ثانوی مسدود می‌باشد!";
 
-				return;
+					Dtx.Windows.Forms.MessageBox.ShowError(errorMessage);
+
+					usernameTextBox.Focus();
+
+					return;
+				}
+
+				Hide();
+
+				Program.AuthenticatedUser = foundedUser;
+
+				Program.ShowMainForm();
 			}
-
-			Models.User user =
-				MyDatabaseContext.Users
-				.Where(current => (string.Compare(current.Username, usernameTextBox.Text, true) == 0))
-				.FirstOrDefault();
-
-			if (user == null)
+			catch (System.Exception ex)
 			{
-				string errorMessage =
-					"همچین کاربری وجود ندارد!";
-
-				Dtx.Windows.Forms.MessageBox.ShowError(errorMessage);
-
-				usernameTextBox.Focus();
-
-				return;
+				Dtx.Windows.Forms.MessageBox.ShowError(ex.Message);
 			}
-
-			// Sulotion for chech password: ابتدا باید رکورد مربوط به نام کاربری مشخص گردد و بعد از آن 
-			// عمل مقایسه گذرواژه وارد شده با گذرواژه رکورد مربوطه صورت پذیرد.
-			// .که در صورت عدم مغاییرت امکان ورود مهیا باشد
-
-			string message =
-				$" خوش اومدی { usernameTextBox.Text }.";
-
-			Dtx.Windows.Forms.MessageBox.ShowInformation(message);
+			finally
+			{
+				if (databaseContext != null)
+				{
+					databaseContext.Dispose();
+					databaseContext = null;
+				}
+			}
 		}
 
 		#endregion /LoginButton_Click
@@ -93,10 +146,7 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 		#region ResetButton_Click
 		private void ResetButton_Click(object sender, System.EventArgs e)
 		{
-			usernameTextBox.Text = string.Empty;
-			passwordTextBox.Text = string.Empty;
-
-			usernameTextBox.Focus();
+			Initialize();
 		}
 		#endregion /ResetButton_Click
 
@@ -105,7 +155,7 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 		{
 			Hide();
 
-			Program.RegisterForm.Show();
+			Program.ShowRegisterForm();
 		}
 		#endregion /RegisterButton_Click
 

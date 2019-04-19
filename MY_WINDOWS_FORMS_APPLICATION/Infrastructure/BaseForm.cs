@@ -46,28 +46,28 @@
 		//protected Models.DatabaseContext MyDatabaseContext;
 		// **************************************************
 
-		// **************************************************
-		/// <summary>
-		/// Solution (4)
-		/// </summary>
-		private Models.DatabaseContext myDatabaseContext;
+		//// **************************************************
+		///// <summary>
+		///// Solution (4)
+		///// </summary>
+		//private Models.DatabaseContext myDatabaseContext;
 
-		/// <summary>
-		/// Lazy Loading = Lazy Initialization
-		/// </summary>
-		protected Models.DatabaseContext MyDatabaseContext
-		{
-			get
-			{
-				if (myDatabaseContext == null)
-				{
-					myDatabaseContext =
-						new Models.DatabaseContext();
-				}
+		///// <summary>
+		///// Lazy Loading = Lazy Initialization
+		///// </summary>
+		//protected Models.DatabaseContext MyDatabaseContext
+		//{
+		//	get
+		//	{
+		//		if (myDatabaseContext == null)
+		//		{
+		//			myDatabaseContext =
+		//				new Models.DatabaseContext();
+		//		}
 
-				return myDatabaseContext;
-			}
-		}
-		// **************************************************
+		//		return myDatabaseContext;
+		//	}
+		//}
+		//// **************************************************
 	}
 }
