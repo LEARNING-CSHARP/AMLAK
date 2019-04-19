@@ -154,6 +154,7 @@
 			this.MinimumSize = new System.Drawing.Size(458, 165);
 			this.Name = "RegisterForm";
 			this.Text = "ثبت ‌نام";
+			this.Load += new System.EventHandler(this.RegisterForm_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

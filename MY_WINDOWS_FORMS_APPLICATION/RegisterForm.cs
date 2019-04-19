@@ -9,9 +9,13 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 			InitializeComponent();
 		}
 
-		public LoginForm loginForm;
+		#region RegisterForm_Load
+		private void RegisterForm_Load(object sender, System.EventArgs e)
+		{
+		}
+		#endregion /RegisterForm_Load
 
-		#region Register Button
+		#region RegisterButton_Click
 		private void RegisterButton_Click(object sender, System.EventArgs e)
 		{
 			// **************************************************
@@ -102,46 +106,33 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 			Dtx.Windows.Forms.MessageBox.ShowInformation(message);
 			// **************************************************
 		}
-		#endregion /Register Button
+		#endregion /RegisterButton_Click
 
-		#region Reset Button
+		#region ResetButton_Click
 		private void ResetButton_Click(object sender, System.EventArgs e)
 		{
 			usernameTextBox.Text = string.Empty;
-			usernameTextBox.Focus();
 			passwordTextBox.Text = string.Empty;
 			fullNameTextBox.Text = string.Empty;
-		}
-		#endregion /Reset Button
 
-		#region Login Button
+			usernameTextBox.Focus();
+		}
+		#endregion /ResetButton_Click
+
+		#region LoginButton_Click
 		private void LoginButton_Click(object sender, System.EventArgs e)
 		{
-			if (loginForm==null || loginForm.IsDisposed==true)
-			{
-				loginForm = new LoginForm();
-				loginForm.Show();
-				this.Hide();
-			}
-		}
-		#endregion /Login Button
+			Hide();
 
-		#region Exit Button
+			Program.LoginForm.Show();
+		}
+		#endregion /LoginButton_Click
+
+		#region ExitButton_Click
 		private void ExitButton_Click(object sender, System.EventArgs e)
 		{
-			System.Windows.Forms.DialogResult result;
-
-			result = System.Windows.Forms.MessageBox.Show(text: "آیا قصد خروج از برنامه را دارید؟", caption: "خروج",
-				buttons: System.Windows.Forms.MessageBoxButtons.YesNo,
-				icon: System.Windows.Forms.MessageBoxIcon.Question,
-				defaultButton: System.Windows.Forms.MessageBoxDefaultButton.Button2,
-				options: System.Windows.Forms.MessageBoxOptions.RightAlign | System.Windows.Forms.MessageBoxOptions.RtlReading);
-
-			if (result == System.Windows.Forms.DialogResult.Yes)
-			{
-				System.Windows.Forms.Application.Exit();
-			}
+			Infrastructure.Utility.Exit();
 		}
-		#endregion /Exit Button
+		#endregion /ExitButton_Click
 	}
 }

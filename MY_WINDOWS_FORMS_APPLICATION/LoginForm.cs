@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+
 namespace MY_WINDOWS_FORMS_APPLICATION
 {
 	public partial class LoginForm : Infrastructure.BaseForm
@@ -6,21 +7,15 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 		public LoginForm()
 		{
 			InitializeComponent();
-			
 		}
-		
-		#region Register Button
-		private void RegisterButton_Click(object sender, System.EventArgs e)
-		{
-			if (Program.startupForm!=null || Program.startupForm.IsDisposed!=true)
-			{
-				Program.startupForm.Show();
-				this.Close();
-			}
-		}
-		#endregion /Register Button
 
-		#region Login Button
+		#region LoginForm_Load
+		private void LoginForm_Load(object sender, System.EventArgs e)
+		{
+		}
+		#endregion /LoginForm_Load
+
+		#region LoginButton_Click
 		private void LoginButton_Click(object sender, System.EventArgs e)
 		{
 			// **************************************************
@@ -66,51 +61,60 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 				return;
 			}
 
-			Models.User userName =
+			Models.User user =
 				MyDatabaseContext.Users
 				.Where(current => (string.Compare(current.Username, usernameTextBox.Text, true) == 0))
 				.FirstOrDefault();
 
-			if (userName == null)
+			if (user == null)
 			{
-				string message =
-				"همچین کاربری وجود ندارد.";
+				string errorMessage =
+					"همچین کاربری وجود ندارد!";
 
-				Dtx.Windows.Forms.MessageBox.ShowInformation(message);
+				Dtx.Windows.Forms.MessageBox.ShowError(errorMessage);
 
 				usernameTextBox.Focus();
+
+				return;
 			}
+
 			// Sulotion for chech password: ابتدا باید رکورد مربوط به نام کاربری مشخص گردد و بعد از آن 
 			// عمل مقایسه گذرواژه وارد شده با گذرواژه رکورد مربوطه صورت پذیرد.
 			// .که در صورت عدم مغاییرت امکان ورود مهیا باشد
-			else
-			{
-				string message =
+
+			string message =
 				$" خوش اومدی { usernameTextBox.Text }.";
 
-				Dtx.Windows.Forms.MessageBox.ShowInformation(message);
-			}
+			Dtx.Windows.Forms.MessageBox.ShowInformation(message);
 		}
 
-		#endregion /Login Button
+		#endregion /LoginButton_Click
 
-		#region Exit Button
+		#region ResetButton_Click
+		private void ResetButton_Click(object sender, System.EventArgs e)
+		{
+			usernameTextBox.Text = string.Empty;
+			passwordTextBox.Text = string.Empty;
+
+			usernameTextBox.Focus();
+		}
+		#endregion /ResetButton_Click
+
+		#region RegisterButton_Click
+		private void RegisterButton_Click(object sender, System.EventArgs e)
+		{
+			Hide();
+
+			Program.RegisterForm.Show();
+		}
+		#endregion /RegisterButton_Click
+
+		#region ExitButton_Click
 		private void ExitButton_Click(object sender, System.EventArgs e)
 		{
-			System.Windows.Forms.DialogResult result;
-
-			result = System.Windows.Forms.MessageBox.Show(text: "", caption: "",
-				buttons: System.Windows.Forms.MessageBoxButtons.YesNo,
-				icon: System.Windows.Forms.MessageBoxIcon.Question,
-				defaultButton: System.Windows.Forms.MessageBoxDefaultButton.Button2,
-				options: System.Windows.Forms.MessageBoxOptions.RightAlign | System.Windows.Forms.MessageBoxOptions.RtlReading);
-
-			if (result == System.Windows.Forms.DialogResult.Yes)
-			{
-				System.Windows.Forms.Application.Exit();
-			}
+			Infrastructure.Utility.Exit();
 		}
 
-		#endregion /Exit Button
+		#endregion /ExitButton_Click
 	}
 }

@@ -5,9 +5,43 @@
 		static Program()
 		{
 		}
+
 		// **************************************************
-		public static RegisterForm startupForm;
+		private static LoginForm loginForm;
+
+		public static LoginForm LoginForm
+		{
+			get
+			{
+				if (loginForm == null)
+				{
+					loginForm =
+						new LoginForm();
+				}
+
+				return loginForm;
+			}
+		}
 		// **************************************************
+
+		// **************************************************
+		private static RegisterForm registerForm;
+
+		public static RegisterForm RegisterForm
+		{
+			get
+			{
+				if (registerForm == null)
+				{
+					registerForm =
+						new RegisterForm();
+				}
+
+				return registerForm;
+			}
+		}
+		// **************************************************
+
 		[System.STAThread]
 		static void Main()
 		{
@@ -15,20 +49,25 @@
 			System.Windows.Forms.Application.EnableVisualStyles();
 			System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
 			// **************************************************
-			startupForm = new RegisterForm();
+
+			// **************************************************
+			//LoginForm startupForm = new LoginForm();
+
+			//System.Windows.Forms.Application.Run(startupForm);
+
+			//if (startupForm != null)
+			//{
+			//	if (startupForm.IsDisposed == false)
+			//	{
+			//		startupForm.Dispose();
+			//	}
+
+			//	startupForm = null;
+			//}
 			// **************************************************
 
-			System.Windows.Forms.Application.Run(startupForm);
-
-			if (startupForm != null)
-			{
-				if (startupForm.IsDisposed == false)
-				{
-					startupForm.Dispose();
-				}
-
-				startupForm = null;
-			}
+			// **************************************************
+			System.Windows.Forms.Application.Run(LoginForm);
 			// **************************************************
 		}
 	}
