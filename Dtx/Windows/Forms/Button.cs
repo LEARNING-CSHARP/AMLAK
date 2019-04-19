@@ -4,7 +4,21 @@
 	{
 		public Button() : base()
 		{
+			BackColor = System.Drawing.Color.LightGray;
 			HoverBackColor = System.Drawing.Color.Yellow;
+		}
+
+		[System.ComponentModel.DefaultValue(type: typeof(System.Drawing.Color), value: "LightGray")]
+		public override System.Drawing.Color BackColor
+		{
+			get
+			{
+				return base.BackColor;
+			}
+			set
+			{
+				base.BackColor = value;
+			}
 		}
 
 		[System.ComponentModel.DefaultValue(type: typeof(System.Drawing.Color), value: "Yellow")]
