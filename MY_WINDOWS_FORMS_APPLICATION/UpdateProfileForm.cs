@@ -46,23 +46,55 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 		#region UpdateButton_Click
 		private void UpdateButton_Click(object sender, System.EventArgs e)
 		{
+			#region Solution 1
 			Models.DatabaseContext databaseContext = null;
-			try
+
+			databaseContext = new Models.DatabaseContext();
+
+			Models.User updateuser =
+				new Models.User();
+
+			if (string.Compare(updateuser.Username, usernameTextBox.Text, ignoreCase: false) == 0)
 			{
-				databaseContext =
-					new Models.DatabaseContext();
-
-				Models.User userload =
-				databaseContext.Users
-				.Where(Cursor => string.Compare(Cursor.Username, usernameTextBox.Text, true) == 0)
-				.FirstOrDefault();
-
+				updateuser.FullName = fullNameTextBox.Text;
+				updateuser.Description = descriptionTextBox.Text;
 			}
-			catch (System.Exception ex)
-			{
+			databaseContext.Users.Add(updateuser);
+			databaseContext.SaveChanges();
+			string message =
+				"اطلاعات به روز برسانی گردید.";
+			Dtx.Windows.Forms.MessageBox.ShowInformation(message);
+			#endregion /Solution 1
 
-				Dtx.Windows.Forms.MessageBox.ShowError(ex.Message);
-			}
+			#region Solution 2
+			//Models.DatabaseContext databaseContext = null;
+			//try
+			//{
+			//	databaseContext =
+			//		new Models.DatabaseContext();
+
+			//	Models.User userload =
+			//	databaseContext.Users
+			//	.Where(Cursor => string.Compare(Cursor.Username, usernameTextBox.Text, true) == 0)
+			//	.FirstOrDefault();
+
+			//	if (userload!=null)
+			//	{
+			//		userload =
+			//			new Models.User
+			//			{
+			//				FullName = fullNameTextBox.Text,
+			//				Description=descriptionTextBox.Text,
+			//			};
+			//	}
+
+			//}
+			//catch (System.Exception ex)
+			//{
+
+			//	Dtx.Windows.Forms.MessageBox.ShowError(ex.Message);
+			//}
+			#endregion /Solution 2
 		}
 		#endregion /UpdateButton_Click
 
