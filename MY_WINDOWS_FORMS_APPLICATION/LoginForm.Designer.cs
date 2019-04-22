@@ -140,8 +140,6 @@
 		}
 
 		#endregion
-
-		private Dtx.Windows.Forms.TextBox usernameTextBox;
 		private Dtx.Windows.Forms.TextBox passwordTextBox;
 		private Dtx.Windows.Forms.Label usernameLabel;
 		private Dtx.Windows.Forms.Label passwordLabel;
@@ -149,5 +147,6 @@
 		private Dtx.Windows.Forms.Button loginButton;
 		private Dtx.Windows.Forms.Button registerButton;
 		private Dtx.Windows.Forms.Button resetButton;
+		public Dtx.Windows.Forms.TextBox usernameTextBox;
 	}
 }

@@ -49,13 +49,29 @@
     <Compile Include="Windows\Forms\Button.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Windows\Forms\CheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Windows\Forms\GroupBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Windows\Forms\Label.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Windows\Forms\linkLabel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Windows\Forms\MenuStrip.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Windows\Forms\MessageBox.cs" />
+    <Compile Include="Windows\Forms\OpenFile.cs" />
+    <Compile Include="Windows\Forms\PictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Windows\Forms\RadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Windows\Forms\StatusStrip.cs">
       <SubType>Component</SubType>
     </Compile>

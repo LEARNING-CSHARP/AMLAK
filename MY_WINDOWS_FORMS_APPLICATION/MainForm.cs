@@ -49,5 +49,13 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 			Infrastructure.Utility.Exit();
 		}
 		#endregion /ExitToolStripMenuItem_Click
+
+		#region UpdateProfileToolStripMenuItem_Click
+		private void UpdateProfileToolStripMenuItem_Click(object sender, System.EventArgs e)
+		{
+			Hide();
+			Program.ShowUpdateProfileForm();
+		}
+		#endregion /UpdateProfileToolStripMenuItem_Click
 	}
 }

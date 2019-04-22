@@ -11,6 +11,7 @@
 		// **************************************************
 
 		// **************************************************
+		#region MainForm
 		private static MainForm mainForm;
 
 		public static MainForm MainForm
@@ -33,9 +34,11 @@
 
 			MainForm.Show();
 		}
+		#endregion /MainForm
 		// **************************************************
 
 		// **************************************************
+		#region LoginForm
 		private static LoginForm loginForm;
 
 		public static LoginForm LoginForm
@@ -60,9 +63,11 @@
 
 			LoginForm.Show();
 		}
+		#endregion /LoginForm
 		// **************************************************
-
+		
 		// **************************************************
+		#region RegisterForm
 		private static RegisterForm registerForm;
 
 		public static RegisterForm RegisterForm
@@ -85,6 +90,31 @@
 
 			RegisterForm.Show();
 		}
+		#endregion /RegisterForm
+		// **************************************************
+
+		// **************************************************
+		#region UpdateProfileForm
+		private static UpdateProfileForm updateProfileForm;
+		public static UpdateProfileForm UpdateProfileForm
+		{
+			get
+			{
+				if (updateProfileForm==null)
+				{
+					updateProfileForm =
+						new UpdateProfileForm();
+				}
+				return updateProfileForm;
+			}
+		}
+
+		public static void ShowUpdateProfileForm()
+		{
+			UpdateProfileForm.Initialize();
+			UpdateProfileForm.Show();
+		}
+		#endregion /UpdateProfileForm
 		// **************************************************
 
 		[System.STAThread]
