@@ -57,5 +57,14 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 			Program.ShowUpdateProfileForm();
 		}
 		#endregion /UpdateProfileToolStripMenuItem_Click
+
+		#region ChangePasswordToolStripMenuItem_Click
+		private void ChangePasswordToolStripMenuItem_Click(object sender, System.EventArgs e)
+		{
+			Hide();
+			Program.ShowChangePasswordForm();
+		}
+		#endregion /ChangePasswordToolStripMenuItem_Click
+
 	}
 }

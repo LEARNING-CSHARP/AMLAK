@@ -65,12 +65,6 @@
     <Compile Include="UpdateProfileForm.Designer.cs">
       <DependentUpon>UpdateProfileForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EnterPasswordForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EnterPasswordForm.Designer.cs">
-      <DependentUpon>EnterPasswordForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Infrastructure\BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +92,9 @@
     <Compile Include="RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ChangePasswordForm.resx">
+      <DependentUpon>ChangePasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -121,6 +118,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
@@ -148,6 +146,12 @@
       <Project>{a51fc0e9-0c85-4bad-832b-59f77cf4da32}</Project>
       <Name>Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-eye-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-hide-100.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

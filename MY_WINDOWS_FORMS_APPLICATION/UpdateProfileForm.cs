@@ -17,9 +17,16 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 		#region Initialize
 		public void Initialize()
 		{
-			showPasswordCheckBox.Checked = false;
-			showPasswordCheckBox.Text = "نمایش گذر واژه";
-			showPasswordCheckBox.Location = new System.Drawing.Point(161, 101);
+			Models.User authenticatedUser = Program.AuthenticatedUser;
+
+			if (authenticatedUser!=null)
+			{
+				usernameTextBox.Text = authenticatedUser.Username;
+				IDTextBox.Text = authenticatedUser.Id.ToString();
+				passwordTextBox.Text = authenticatedUser.Password;
+				fullNameTextBox.Text = authenticatedUser.FullName;
+				descriptionTextBox.Text = authenticatedUser.Description;
+			}
 		}
 		#endregion /Initialize
 
@@ -46,24 +53,43 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 		#region UpdateButton_Click
 		private void UpdateButton_Click(object sender, System.EventArgs e)
 		{
-			#region Solution 1
-			Models.DatabaseContext databaseContext = null;
+			#region Solution 3
+			Models.DatabaseContext databaseContext = new Models.DatabaseContext();
 
-			databaseContext = new Models.DatabaseContext();
-
-			Models.User updateuser =
-				new Models.User();
-
-			if (string.Compare(updateuser.Username, usernameTextBox.Text, ignoreCase: false) == 0)
+			Models.User upadteuser = Program.AuthenticatedUser;
+			if (upadteuser != null)
 			{
-				updateuser.FullName = fullNameTextBox.Text;
-				updateuser.Description = descriptionTextBox.Text;
+				upadteuser.FullName = fullNameTextBox.Text;
+				upadteuser.Description = descriptionTextBox.Text;
+
+				databaseContext.Users.Add(upadteuser);
+				databaseContext.SaveChanges();
 			}
-			databaseContext.Users.Add(updateuser);
-			databaseContext.SaveChanges();
+
+
 			string message =
-				"اطلاعات به روز برسانی گردید.";
+				"اطلاعات با موفقیت به روزسانی گردید.";
 			Dtx.Windows.Forms.MessageBox.ShowInformation(message);
+			#endregion
+
+			#region Solution 1
+			//Models.DatabaseContext databaseContext = null;
+
+			//databaseContext = new Models.DatabaseContext();
+
+			//Models.User updateuser =
+			//	new Models.User();
+
+			//if (string.Compare(updateuser.Username, usernameTextBox.Text, ignoreCase: false) == 0)
+			//{
+			//	updateuser.FullName = fullNameTextBox.Text;
+			//	updateuser.Description = descriptionTextBox.Text;
+			//}
+			//databaseContext.Users.Add(updateuser);
+			//databaseContext.SaveChanges();
+			//string message =
+			//	"اطلاعات به روز برسانی گردید.";
+			//Dtx.Windows.Forms.MessageBox.ShowInformation(message);
 			#endregion /Solution 1
 
 			#region Solution 2
@@ -120,27 +146,12 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 		}
 		#endregion /ExitButton_Click
 
-		#region ShowPasswordCheckBox_CheckedChanged
-		private void ShowPasswordCheckBox_CheckedChanged(object sender, System.EventArgs e)
+		#region ChangePasswordLinkLabel_LinkClicked
+		private void ChangePasswordLinkLabel_LinkClicked(object sender, System.Windows.Forms.LinkLabelLinkClickedEventArgs e)
 		{
-			if (showPasswordCheckBox.Checked == false)
-			{
-				passwordTextBox.UseSystemPasswordChar = true;
-				showPasswordCheckBox.Text = "نمایش گذر واژه";
-				showPasswordCheckBox.Location = new System.Drawing.Point(161, 101);
-				this.Text = $"X={showPasswordCheckBox.Location.X}, Y={showPasswordCheckBox.Location.Y}";
-			}
-			else
-			{
-				passwordTextBox.UseSystemPasswordChar = false;
-				showPasswordCheckBox.Text = "عدم نمایش گذر واژه";
-				showPasswordCheckBox.Location = new System.Drawing.Point(138, 101);
-				this.Text = $"X={showPasswordCheckBox.Location.X}, Y={showPasswordCheckBox.Location.Y}";
-			}
+			Hide();
+			Program.ShowChangePasswordForm();
 		}
-		#endregion /ShowPasswordCheckBox_CheckedChanged
-
-
-
+		#endregion /ChangePasswordLinkLabel_LinkClicked
 	}
 }

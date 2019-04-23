@@ -65,7 +65,7 @@
 		}
 		#endregion /LoginForm
 		// **************************************************
-		
+
 		// **************************************************
 		#region RegisterForm
 		private static RegisterForm registerForm;
@@ -100,7 +100,7 @@
 		{
 			get
 			{
-				if (updateProfileForm==null)
+				if (updateProfileForm == null)
 				{
 					updateProfileForm =
 						new UpdateProfileForm();
@@ -115,6 +115,31 @@
 			UpdateProfileForm.Show();
 		}
 		#endregion /UpdateProfileForm
+		// **************************************************
+
+		// **************************************************
+		#region ChangePasswordForm
+		private static ChangePasswordForm changePasswordForm;
+		public static	ChangePasswordForm ChangPasswordForm
+		{
+			get
+			{
+				if (changePasswordForm==null)
+				{
+					changePasswordForm =
+						new ChangePasswordForm();
+				}
+				return changePasswordForm;
+			}
+		}
+
+		public static void ShowChangePasswordForm()
+		{
+			ChangPasswordForm.Initialize();
+			ChangPasswordForm.Show();
+		}
+
+		#endregion /ChangePasswordForm
 		// **************************************************
 
 		[System.STAThread]

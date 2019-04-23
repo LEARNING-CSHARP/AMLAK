@@ -47,7 +47,6 @@
 			this.IDTextBox = new Dtx.Windows.Forms.TextBox();
 			this.activeRradioButton = new Dtx.Windows.Forms.RadioButton();
 			this.IDLabel = new Dtx.Windows.Forms.Label();
-			this.showPasswordCheckBox = new Dtx.Windows.Forms.CheckBox();
 			this.changePasswordLinkLabel = new Dtx.Windows.Forms.linkLabel();
 			this.passwordTextBox = new Dtx.Windows.Forms.TextBox();
 			this.usernameTextBox = new Dtx.Windows.Forms.TextBox();
@@ -214,7 +213,6 @@
 			this.informationUserGoupBox.Controls.Add(this.IDTextBox);
 			this.informationUserGoupBox.Controls.Add(this.activeRradioButton);
 			this.informationUserGoupBox.Controls.Add(this.IDLabel);
-			this.informationUserGoupBox.Controls.Add(this.showPasswordCheckBox);
 			this.informationUserGoupBox.Controls.Add(this.changePasswordLinkLabel);
 			this.informationUserGoupBox.Controls.Add(this.passwordTextBox);
 			this.informationUserGoupBox.Controls.Add(this.usernameTextBox);
@@ -282,17 +280,6 @@
 			this.IDLabel.TabIndex = 6;
 			this.IDLabel.Text = "کد شناسایی";
 			// 
-			// showPasswordCheckBox
-			// 
-			this.showPasswordCheckBox.AutoSize = true;
-			this.showPasswordCheckBox.Location = new System.Drawing.Point(138, 101);
-			this.showPasswordCheckBox.Name = "showPasswordCheckBox";
-			this.showPasswordCheckBox.Size = new System.Drawing.Size(117, 17);
-			this.showPasswordCheckBox.TabIndex = 5;
-			this.showPasswordCheckBox.Text = "عدم نمایش گذر واژه";
-			this.showPasswordCheckBox.UseVisualStyleBackColor = true;
-			this.showPasswordCheckBox.CheckedChanged += new System.EventHandler(this.ShowPasswordCheckBox_CheckedChanged);
-			// 
 			// changePasswordLinkLabel
 			// 
 			this.changePasswordLinkLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -304,6 +291,7 @@
 			this.changePasswordLinkLabel.TabIndex = 4;
 			this.changePasswordLinkLabel.TabStop = true;
 			this.changePasswordLinkLabel.Text = "تغییر گذرواژه";
+			this.changePasswordLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ChangePasswordLinkLabel_LinkClicked);
 			// 
 			// passwordTextBox
 			// 
@@ -390,7 +378,6 @@
 		private Dtx.Windows.Forms.Button exitButton;
 		public Dtx.Windows.Forms.TextBox passwordTextBox;
 		public Dtx.Windows.Forms.TextBox usernameTextBox;
-		private Dtx.Windows.Forms.CheckBox showPasswordCheckBox;
 		public Dtx.Windows.Forms.TextBox descriptionTextBox;
 		public Dtx.Windows.Forms.TextBox fullNameTextBox;
 		public Dtx.Windows.Forms.PictureBox userImagePictureBox;

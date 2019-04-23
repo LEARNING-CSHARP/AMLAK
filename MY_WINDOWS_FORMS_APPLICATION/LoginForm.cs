@@ -121,12 +121,6 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 					return;
 				}
 
-				Program.UpdateProfileForm.IDTextBox.Text = foundedUser.Id.ToString();
-				Program.UpdateProfileForm.usernameTextBox.Text = foundedUser.Username;
-				Program.UpdateProfileForm.passwordTextBox.Text = foundedUser.Password;
-				Program.UpdateProfileForm.fullNameTextBox.Text = foundedUser.FullName;
-				Program.UpdateProfileForm.descriptionTextBox.Text = foundedUser.Description;
-
 				Hide();
 
 				Program.AuthenticatedUser = foundedUser;
