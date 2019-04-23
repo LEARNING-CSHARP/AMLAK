@@ -19,7 +19,7 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 		{
 			Models.User authenticatedUser = Program.AuthenticatedUser;
 
-			if (authenticatedUser!=null)
+			if (authenticatedUser != null)
 			{
 				usernameTextBox.Text = authenticatedUser.Username;
 				IDTextBox.Text = authenticatedUser.Id.ToString();
@@ -29,6 +29,14 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 			}
 		}
 		#endregion /Initialize
+
+		#region ChangePasswordLinkLabel_LinkClicked
+		private void ChangePasswordLinkLabel_LinkClicked(object sender, System.Windows.Forms.LinkLabelLinkClickedEventArgs e)
+		{
+			Hide();
+			Program.ShowChangePasswordForm();
+		}
+		#endregion /ChangePasswordLinkLabel_LinkClicked
 
 		#region PictureChangeLinkLabel_LinkClicked
 		private void PictureChangeLinkLabel_LinkClicked(object sender, System.Windows.Forms.LinkLabelLinkClickedEventArgs e)
@@ -145,13 +153,5 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 			Infrastructure.Utility.Exit();
 		}
 		#endregion /ExitButton_Click
-
-		#region ChangePasswordLinkLabel_LinkClicked
-		private void ChangePasswordLinkLabel_LinkClicked(object sender, System.Windows.Forms.LinkLabelLinkClickedEventArgs e)
-		{
-			Hide();
-			Program.ShowChangePasswordForm();
-		}
-		#endregion /ChangePasswordLinkLabel_LinkClicked
 	}
 }

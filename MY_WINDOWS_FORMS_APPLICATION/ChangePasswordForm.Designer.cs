@@ -105,10 +105,10 @@
 			this.confirampasswordTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.confirampasswordTextBox.Location = new System.Drawing.Point(33, 74);
+			this.confirampasswordTextBox.MaxLength = 40;
 			this.confirampasswordTextBox.Name = "confirampasswordTextBox";
 			this.confirampasswordTextBox.Size = new System.Drawing.Size(308, 21);
 			this.confirampasswordTextBox.TabIndex = 5;
-			this.confirampasswordTextBox.Text = "123";
 			this.confirampasswordTextBox.UseSystemPasswordChar = true;
 			// 
 			// confirampasswordLabel
@@ -126,10 +126,10 @@
 			this.newpasswordTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.newpasswordTextBox.Location = new System.Drawing.Point(33, 47);
+			this.newpasswordTextBox.MaxLength = 40;
 			this.newpasswordTextBox.Name = "newpasswordTextBox";
 			this.newpasswordTextBox.Size = new System.Drawing.Size(308, 21);
 			this.newpasswordTextBox.TabIndex = 3;
-			this.newpasswordTextBox.Text = "123";
 			this.newpasswordTextBox.UseSystemPasswordChar = true;
 			// 
 			// newpasswordLlabel
@@ -147,10 +147,10 @@
 			this.oldpasswordTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.oldpasswordTextBox.Location = new System.Drawing.Point(33, 20);
+			this.oldpasswordTextBox.MaxLength = 40;
 			this.oldpasswordTextBox.Name = "oldpasswordTextBox";
 			this.oldpasswordTextBox.Size = new System.Drawing.Size(308, 21);
 			this.oldpasswordTextBox.TabIndex = 1;
-			this.oldpasswordTextBox.Text = "12345";
 			this.oldpasswordTextBox.UseSystemPasswordChar = true;
 			// 
 			// oldpasswordLabel
@@ -172,6 +172,7 @@
 			this.ChangepasswordButton.TabIndex = 1;
 			this.ChangepasswordButton.Text = "تغییر &گذرواژه";
 			this.ChangepasswordButton.UseVisualStyleBackColor = false;
+			this.ChangepasswordButton.Click += new System.EventHandler(this.ChangepasswordButton_Click);
 			// 
 			// resetButton
 			// 
@@ -182,6 +183,7 @@
 			this.resetButton.TabIndex = 2;
 			this.resetButton.Text = "&حالت اولیه";
 			this.resetButton.UseVisualStyleBackColor = false;
+			this.resetButton.Click += new System.EventHandler(this.ResetButton_Click);
 			// 
 			// mainformButton
 			// 
@@ -192,6 +194,7 @@
 			this.mainformButton.TabIndex = 3;
 			this.mainformButton.Text = "&صفحه اصلی";
 			this.mainformButton.UseVisualStyleBackColor = false;
+			this.mainformButton.Click += new System.EventHandler(this.MainformButton_Click);
 			// 
 			// exitButton
 			// 
@@ -202,6 +205,7 @@
 			this.exitButton.TabIndex = 4;
 			this.exitButton.Text = "&خروج";
 			this.exitButton.UseVisualStyleBackColor = false;
+			this.exitButton.Click += new System.EventHandler(this.ExitButton_Click);
 			// 
 			// ChangePasswordForm
 			// 

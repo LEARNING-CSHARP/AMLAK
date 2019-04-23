@@ -1,4 +1,5 @@
-﻿namespace MY_WINDOWS_FORMS_APPLICATION
+﻿using System.Linq;
+namespace MY_WINDOWS_FORMS_APPLICATION
 {
 	public partial class ChangePasswordForm : Infrastructure.BaseForm
 	{
@@ -17,9 +18,9 @@
 		#region Initialize
 		public void Initialize()
 		{
-			//oldpasswordTextBox.Text = string.Empty;
-			//newpasswordTextBox.Text = string.Empty;
-			//confirampasswordTextBox.Text = string.Empty;
+			oldpasswordTextBox.Text = string.Empty;
+			newpasswordTextBox.Text = string.Empty;
+			confirampasswordTextBox.Text = string.Empty;
 		}
 		#endregion /Initialize
 
@@ -31,7 +32,7 @@
 				oldpasswordTextBox.UseSystemPasswordChar = false;
 				showoldpawwordPictureBox.Image = Properties.Resources.icons8_hide_100;
 			}
-			else if(oldpasswordTextBox.UseSystemPasswordChar == false)
+			else if (oldpasswordTextBox.UseSystemPasswordChar == false)
 			{
 				oldpasswordTextBox.UseSystemPasswordChar = true;
 				showoldpawwordPictureBox.Image = Properties.Resources.icons8_eye_100;
@@ -69,12 +70,73 @@
 				showconfirmpasswordPictureBox.Image = Properties.Resources.icons8_eye_100;
 			}
 		}
+
 		#endregion /ShowconfirmpasswordPictureBox_Click
 
-		#region MyRegion
+		#region ChangepasswordButton_Click
+		private void ChangepasswordButton_Click(object sender, System.EventArgs e)
+		{
+			Models.DatabaseContext databaseContext = null;
+			try
+			{
+				databaseContext =
+					new Models.DatabaseContext();
 
-		#endregion
+				Models.User passworduser =
+					databaseContext.Users
+					.Where(current => string.Compare(current.Username, Program.LoginForm.usernameTextBox.Text, false) == 0)
+					.FirstOrDefault();
+				if (passworduser != null)
+				{
+					if (passworduser.Password != oldpasswordTextBox.Text)
+					{
+						string message =
+							"گذرواژه تطبیق ندارد. لطفا مجددا تلاش  بفرمایید.";
+						Dtx.Windows.Forms.MessageBox.ShowError(message);
+						oldpasswordTextBox.SelectAll();
+						oldpasswordTextBox.Focus();
+						return;
+					}
+					else if (newpasswordTextBox.Text != confirampasswordTextBox.Text)
+					{
+						string message =
+						"دو گذرواژه با یکدیگر تطبیق ندارند. لطفا مجددا تلاش بفرمایید.";
+						Dtx.Windows.Forms.MessageBox.ShowError(message);
+						newpasswordTextBox.SelectAll();
+						newpasswordTextBox.Focus();
+						return;
+					}
+				}
+			}
+			catch (System.Exception)
+			{
+				throw;
+			}
+		}
+		#endregion /ChangepasswordButton_Click
 
+		#region ResetButton_Click
+		private void ResetButton_Click(object sender, System.EventArgs e)
+		{
+			Initialize();
+		}
+
+		#endregion /ResetButton_Click
+
+		#region MainformButton_Click
+		private void MainformButton_Click(object sender, System.EventArgs e)
+		{
+			Hide();
+			Program.ShowMainForm();
+		}
+		#endregion /MainformButton_Click
+
+		#region ExitButton_Click
+		private void ExitButton_Click(object sender, System.EventArgs e)
+		{
+			Infrastructure.Utility.Exit();
+		}
+		#endregion /ExitButton_Click
 
 	}
 }
