@@ -65,6 +65,5 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 			Program.ShowChangePasswordForm();
 		}
 		#endregion /ChangePasswordToolStripMenuItem_Click
-
 	}
 }

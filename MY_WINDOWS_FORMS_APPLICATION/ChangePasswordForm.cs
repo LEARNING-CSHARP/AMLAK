@@ -11,7 +11,7 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 		#region ChangePasswordForm_Load
 		private void ChangePasswordForm_Load(object sender, System.EventArgs e)
 		{
-			Initialize();
+			//Initialize();
 		}
 		#endregion
 
@@ -19,6 +19,7 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 		public void Initialize()
 		{
 			oldpasswordTextBox.Text = string.Empty;
+			oldpasswordTextBox.Focus();
 			newpasswordTextBox.Text = string.Empty;
 			confirampasswordTextBox.Text = string.Empty;
 		}
@@ -115,7 +116,7 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 					.FirstOrDefault();
 				if (passworduser != null)
 				{
-					if (string.Compare(passworduser.Password, oldpasswordTextBox.Text, false)!=0)
+					if (string.Compare(passworduser.Password, oldpasswordTextBox.Text, false) != 0)
 					{
 						string message =
 							"گذرواژه صحیح نمی باشد. لطفا مجددا اقدام نمایید.";
@@ -127,13 +128,19 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 					else if (newpasswordTextBox.Text != confirampasswordTextBox.Text)
 					{
 						string message =
-						"دو گذرواژه با یکدیگر تطبیق ندارند. لطفا مجددا اقدام بفرمایید.";
+						"دو گذرواژه با یکدیگر تطبیق ندارند. لطفا مجددا اقدام نمایید.";
 						Dtx.Windows.Forms.MessageBox.ShowError(message);
 						newpasswordTextBox.SelectAll();
 						newpasswordTextBox.Focus();
 						return;
 					}
 				}
+
+				string changeConfirm =
+					"گذرواژه با موفقیت تغییر یافت.";
+
+				Dtx.Windows.Forms.MessageBox.ShowInformation(changeConfirm);
+				Initialize();
 			}
 			catch (System.Exception)
 			{

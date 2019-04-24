@@ -17,15 +17,41 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 		#region Initialize
 		public void Initialize()
 		{
-			Models.User authenticatedUser = Program.AuthenticatedUser;
-
-			if (authenticatedUser != null)
+			try
 			{
-				usernameTextBox.Text = authenticatedUser.Username;
-				IDTextBox.Text = authenticatedUser.Id.ToString();
-				passwordTextBox.Text = authenticatedUser.Password;
-				fullNameTextBox.Text = authenticatedUser.FullName;
-				descriptionTextBox.Text = authenticatedUser.Description;
+				Models.User authenticateuser = Program.AuthenticatedUser;
+
+				if (authenticateuser != null)
+				{
+					string name = authenticateuser.FullName;
+
+					if (string.IsNullOrWhiteSpace(name))
+					{
+						name = authenticateuser.Username;
+					}
+					string wellcomuser =
+							$"{ name } خوش آمدید.";
+					welcomToolStripStatusLabel.Text = wellcomuser;
+
+					IDTextBox.Text = authenticateuser.Id.ToString();
+					usernameTextBox.Text = authenticateuser.Username;
+					passwordTextBox.Text = authenticateuser.Password;
+					fullNameTextBox.Text = authenticateuser.FullName;
+					descriptionTextBox.Text = authenticateuser.Description;
+
+					if (authenticateuser.IsActive == true)
+					{
+						statususerCheckBox.Checked = true;
+					}
+					else
+					{
+						statususerCheckBox.Checked = false;
+					}
+				}
+			}
+			catch (System.Exception ex)
+			{
+				Dtx.Windows.Forms.MessageBox.ShowError(ex.Message);
 			}
 		}
 		#endregion /Initialize
@@ -62,23 +88,38 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 		private void UpdateButton_Click(object sender, System.EventArgs e)
 		{
 			#region Solution 3
-			Models.DatabaseContext databaseContext = new Models.DatabaseContext();
-
-			Models.User upadteuser = Program.AuthenticatedUser;
-			if (upadteuser != null)
+			Models.DatabaseContext databaseContext = null;
+			try
 			{
-				upadteuser.FullName = fullNameTextBox.Text;
-				upadteuser.Description = descriptionTextBox.Text;
+				databaseContext =
+					new Models.DatabaseContext();
 
-				databaseContext.Users.Add(upadteuser);
+				Models.User authenticateuser = Program.AuthenticatedUser;
+
+				if (authenticateuser != null)
+				{
+					authenticateuser.FullName = fullNameTextBox.Text;
+					authenticateuser.Description = descriptionTextBox.Text;
+				}
+
+				databaseContext.Users.Add(authenticateuser);
 				databaseContext.SaveChanges();
+
 			}
+			catch (System.Exception ex)
+			{
 
-
-			string message =
-				"اطلاعات با موفقیت به روزسانی گردید.";
-			Dtx.Windows.Forms.MessageBox.ShowInformation(message);
-			#endregion
+				Dtx.Windows.Forms.MessageBox.ShowError(ex.Message);
+			}
+			finally
+			{
+				if (databaseContext != null)
+				{
+					databaseContext.Dispose();
+					databaseContext = null;
+				}
+			}
+			#endregion /Solution 3
 
 			#region Solution 1
 			//Models.DatabaseContext databaseContext = null;

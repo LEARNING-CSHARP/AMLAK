@@ -177,6 +177,7 @@
 			// resetButton
 			// 
 			this.resetButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.resetButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.resetButton.Location = new System.Drawing.Point(121, 122);
 			this.resetButton.Name = "resetButton";
 			this.resetButton.Size = new System.Drawing.Size(100, 23);
@@ -209,8 +210,10 @@
 			// 
 			// ChangePasswordForm
 			// 
+			this.AcceptButton = this.ChangepasswordButton;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.CancelButton = this.resetButton;
 			this.ClientSize = new System.Drawing.Size(444, 151);
 			this.Controls.Add(this.ChangepasswordButton);
 			this.Controls.Add(this.resetButton);

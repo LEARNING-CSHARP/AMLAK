@@ -42,20 +42,21 @@
 			this.fullNameLabel = new Dtx.Windows.Forms.Label();
 			this.userImagePictureBox = new Dtx.Windows.Forms.PictureBox();
 			this.informationUserGoupBox = new Dtx.Windows.Forms.GroupBox();
-			this.userstatusLabel = new Dtx.Windows.Forms.Label();
-			this.deactiveRadioButton = new Dtx.Windows.Forms.RadioButton();
+			this.statususerCheckBox = new Dtx.Windows.Forms.CheckBox();
 			this.IDTextBox = new Dtx.Windows.Forms.TextBox();
-			this.activeRradioButton = new Dtx.Windows.Forms.RadioButton();
 			this.IDLabel = new Dtx.Windows.Forms.Label();
 			this.changePasswordLinkLabel = new Dtx.Windows.Forms.linkLabel();
 			this.passwordTextBox = new Dtx.Windows.Forms.TextBox();
 			this.usernameTextBox = new Dtx.Windows.Forms.TextBox();
 			this.passworLabel = new Dtx.Windows.Forms.Label();
 			this.usernameLabel = new Dtx.Windows.Forms.Label();
+			this.statusStrip1 = new Dtx.Windows.Forms.StatusStrip();
+			this.welcomToolStripStatusLabel = new Dtx.Windows.Forms.ToolStripStatusLabel();
 			this.informationAccountGroupBox.SuspendLayout();
 			this.appliedIinformationGroupBox.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.userImagePictureBox)).BeginInit();
 			this.informationUserGoupBox.SuspendLayout();
+			this.statusStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// openFileDialog1
@@ -77,7 +78,7 @@
 			this.informationAccountGroupBox.Controls.Add(this.informationUserGoupBox);
 			this.informationAccountGroupBox.Location = new System.Drawing.Point(13, 12);
 			this.informationAccountGroupBox.Name = "informationAccountGroupBox";
-			this.informationAccountGroupBox.Size = new System.Drawing.Size(499, 439);
+			this.informationAccountGroupBox.Size = new System.Drawing.Size(499, 423);
 			this.informationAccountGroupBox.TabIndex = 0;
 			this.informationAccountGroupBox.TabStop = false;
 			this.informationAccountGroupBox.Text = "اطلاعات حساب";
@@ -146,7 +147,7 @@
 			this.appliedIinformationGroupBox.Controls.Add(this.fullNameLabel);
 			this.appliedIinformationGroupBox.Location = new System.Drawing.Point(151, 203);
 			this.appliedIinformationGroupBox.Name = "appliedIinformationGroupBox";
-			this.appliedIinformationGroupBox.Size = new System.Drawing.Size(342, 230);
+			this.appliedIinformationGroupBox.Size = new System.Drawing.Size(342, 210);
 			this.appliedIinformationGroupBox.TabIndex = 1;
 			this.appliedIinformationGroupBox.TabStop = false;
 			this.appliedIinformationGroupBox.Text = "اطلاعات کاربردی";
@@ -161,7 +162,7 @@
 			this.descriptionTextBox.Multiline = true;
 			this.descriptionTextBox.Name = "descriptionTextBox";
 			this.descriptionTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.descriptionTextBox.Size = new System.Drawing.Size(248, 177);
+			this.descriptionTextBox.Size = new System.Drawing.Size(248, 158);
 			this.descriptionTextBox.TabIndex = 3;
 			// 
 			// decriptionLabel
@@ -208,10 +209,8 @@
 			// 
 			this.informationUserGoupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.informationUserGoupBox.Controls.Add(this.userstatusLabel);
-			this.informationUserGoupBox.Controls.Add(this.deactiveRadioButton);
+			this.informationUserGoupBox.Controls.Add(this.statususerCheckBox);
 			this.informationUserGoupBox.Controls.Add(this.IDTextBox);
-			this.informationUserGoupBox.Controls.Add(this.activeRradioButton);
 			this.informationUserGoupBox.Controls.Add(this.IDLabel);
 			this.informationUserGoupBox.Controls.Add(this.changePasswordLinkLabel);
 			this.informationUserGoupBox.Controls.Add(this.passwordTextBox);
@@ -225,26 +224,16 @@
 			this.informationUserGoupBox.TabStop = false;
 			this.informationUserGoupBox.Text = "مشخصات کاربر";
 			// 
-			// userstatusLabel
+			// statususerCheckBox
 			// 
-			this.userstatusLabel.AutoSize = true;
-			this.userstatusLabel.Location = new System.Drawing.Point(272, 124);
-			this.userstatusLabel.Name = "userstatusLabel";
-			this.userstatusLabel.Size = new System.Drawing.Size(64, 13);
-			this.userstatusLabel.TabIndex = 6;
-			this.userstatusLabel.Text = "وضعیت کاربر";
-			// 
-			// deactiveRadioButton
-			// 
-			this.deactiveRadioButton.AutoSize = true;
-			this.deactiveRadioButton.Enabled = false;
-			this.deactiveRadioButton.Location = new System.Drawing.Point(138, 120);
-			this.deactiveRadioButton.Name = "deactiveRadioButton";
-			this.deactiveRadioButton.Size = new System.Drawing.Size(65, 17);
-			this.deactiveRadioButton.TabIndex = 5;
-			this.deactiveRadioButton.TabStop = true;
-			this.deactiveRadioButton.Text = "غیر فعال";
-			this.deactiveRadioButton.UseVisualStyleBackColor = true;
+			this.statususerCheckBox.AutoSize = true;
+			this.statususerCheckBox.Enabled = false;
+			this.statususerCheckBox.Location = new System.Drawing.Point(172, 101);
+			this.statususerCheckBox.Name = "statususerCheckBox";
+			this.statususerCheckBox.Size = new System.Drawing.Size(83, 17);
+			this.statususerCheckBox.TabIndex = 8;
+			this.statususerCheckBox.Text = "وضعیت کاربر";
+			this.statususerCheckBox.UseVisualStyleBackColor = true;
 			// 
 			// IDTextBox
 			// 
@@ -256,19 +245,6 @@
 			this.IDTextBox.Name = "IDTextBox";
 			this.IDTextBox.Size = new System.Drawing.Size(249, 21);
 			this.IDTextBox.TabIndex = 7;
-			this.IDTextBox.UseSystemPasswordChar = true;
-			// 
-			// activeRradioButton
-			// 
-			this.activeRradioButton.AutoSize = true;
-			this.activeRradioButton.Enabled = false;
-			this.activeRradioButton.Location = new System.Drawing.Point(209, 120);
-			this.activeRradioButton.Name = "activeRradioButton";
-			this.activeRradioButton.Size = new System.Drawing.Size(46, 17);
-			this.activeRradioButton.TabIndex = 4;
-			this.activeRradioButton.TabStop = true;
-			this.activeRradioButton.Text = "فعال";
-			this.activeRradioButton.UseVisualStyleBackColor = true;
 			// 
 			// IDLabel
 			// 
@@ -336,6 +312,23 @@
 			this.usernameLabel.TabIndex = 0;
 			this.usernameLabel.Text = "شناسه کاربری";
 			// 
+			// statusStrip1
+			// 
+			this.statusStrip1.BackColor = System.Drawing.SystemColors.Control;
+			this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.welcomToolStripStatusLabel});
+			this.statusStrip1.Location = new System.Drawing.Point(0, 439);
+			this.statusStrip1.Name = "statusStrip1";
+			this.statusStrip1.Size = new System.Drawing.Size(524, 22);
+			this.statusStrip1.TabIndex = 1;
+			this.statusStrip1.Text = "statusStrip1";
+			// 
+			// welcomToolStripStatusLabel
+			// 
+			this.welcomToolStripStatusLabel.Name = "welcomToolStripStatusLabel";
+			this.welcomToolStripStatusLabel.Size = new System.Drawing.Size(32, 17);
+			this.welcomToolStripStatusLabel.Text = "-----";
+			// 
 			// UpdateProfileForm
 			// 
 			this.AcceptButton = this.updateButton;
@@ -343,9 +336,10 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.resetButton;
 			this.ClientSize = new System.Drawing.Size(524, 461);
+			this.Controls.Add(this.statusStrip1);
 			this.Controls.Add(this.informationAccountGroupBox);
 			this.MaximumSize = new System.Drawing.Size(800, 600);
-			this.MinimumSize = new System.Drawing.Size(540, 415);
+			this.MinimumSize = new System.Drawing.Size(540, 500);
 			this.Name = "UpdateProfileForm";
 			this.Text = "ویرایش مشخصات";
 			this.Load += new System.EventHandler(this.UpdateProfileForm_Load);
@@ -356,7 +350,10 @@
 			((System.ComponentModel.ISupportInitialize)(this.userImagePictureBox)).EndInit();
 			this.informationUserGoupBox.ResumeLayout(false);
 			this.informationUserGoupBox.PerformLayout();
+			this.statusStrip1.ResumeLayout(false);
+			this.statusStrip1.PerformLayout();
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 
@@ -383,8 +380,8 @@
 		public Dtx.Windows.Forms.PictureBox userImagePictureBox;
 		public Dtx.Windows.Forms.TextBox IDTextBox;
 		private Dtx.Windows.Forms.Label IDLabel;
-		private Dtx.Windows.Forms.Label userstatusLabel;
-		private Dtx.Windows.Forms.RadioButton deactiveRadioButton;
-		private Dtx.Windows.Forms.RadioButton activeRradioButton;
+		private Dtx.Windows.Forms.CheckBox statususerCheckBox;
+		private Dtx.Windows.Forms.StatusStrip statusStrip1;
+		private Dtx.Windows.Forms.ToolStripStatusLabel welcomToolStripStatusLabel;
 	}
 }
