@@ -82,16 +82,43 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 				databaseContext =
 					new Models.DatabaseContext();
 
+				if (string.IsNullOrWhiteSpace(oldpasswordTextBox.Text))
+				{
+					string message =
+						"لطفا گذرواژه قدیمی را وارد نمایید.";
+					Dtx.Windows.Forms.MessageBox.ShowError(message);
+					oldpasswordTextBox.Focus();
+					return;
+				}
+
+				if (string.IsNullOrWhiteSpace(newpasswordTextBox.Text))
+				{
+					string message =
+						"لطفا گذرواژه جدید را وارد نمایید.";
+					Dtx.Windows.Forms.MessageBox.ShowError(message);
+					newpasswordTextBox.Focus();
+					return;
+				}
+
+				if (string.IsNullOrWhiteSpace(confirampasswordTextBox.Text))
+				{
+					string message =
+						"لطفا تایید گذرواژه را وارد نمایید.";
+					Dtx.Windows.Forms.MessageBox.ShowError(message);
+					confirampasswordTextBox.Focus();
+					return;
+				}
+
 				Models.User passworduser =
 					databaseContext.Users
 					.Where(current => string.Compare(current.Username, Program.LoginForm.usernameTextBox.Text, false) == 0)
 					.FirstOrDefault();
 				if (passworduser != null)
 				{
-					if (passworduser.Password != oldpasswordTextBox.Text)
+					if (string.Compare(passworduser.Password, oldpasswordTextBox.Text, false)!=0)
 					{
 						string message =
-							"گذرواژه تطبیق ندارد. لطفا مجددا تلاش  بفرمایید.";
+							"گذرواژه صحیح نمی باشد. لطفا مجددا اقدام نمایید.";
 						Dtx.Windows.Forms.MessageBox.ShowError(message);
 						oldpasswordTextBox.SelectAll();
 						oldpasswordTextBox.Focus();
@@ -100,7 +127,7 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 					else if (newpasswordTextBox.Text != confirampasswordTextBox.Text)
 					{
 						string message =
-						"دو گذرواژه با یکدیگر تطبیق ندارند. لطفا مجددا تلاش بفرمایید.";
+						"دو گذرواژه با یکدیگر تطبیق ندارند. لطفا مجددا اقدام بفرمایید.";
 						Dtx.Windows.Forms.MessageBox.ShowError(message);
 						newpasswordTextBox.SelectAll();
 						newpasswordTextBox.Focus();

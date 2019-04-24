@@ -142,6 +142,8 @@
 		#endregion /ChangePasswordForm
 		// **************************************************
 
+		// **************************************************
+		#region Main
 		[System.STAThread]
 		static void Main()
 		{
@@ -170,5 +172,7 @@
 			System.Windows.Forms.Application.Run(LoginForm);
 			// **************************************************
 		}
+		#endregion /Main
+
 	}
 }
