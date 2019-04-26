@@ -30,6 +30,21 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 				}
 
 				welcomeToolStripStatusLabel.Text = $"{ name } خوش آمدید.";
+
+				// **************************************************
+				//if (authenticatedUser.IsAdministrator)
+				//{
+				//	administratorToolStripMenuItem.Visible = true;
+				//}
+				//else
+				//{
+				//	administratorToolStripMenuItem.Visible = false;
+				//}
+				// **************************************************
+
+				// **************************************************
+				administratorToolStripMenuItem.Visible = authenticatedUser.IsAdministrator;
+				// **************************************************
 			}
 		}
 		#endregion /Initialize
@@ -53,17 +68,55 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 		#region UpdateProfileToolStripMenuItem_Click
 		private void UpdateProfileToolStripMenuItem_Click(object sender, System.EventArgs e)
 		{
-			Hide();
-			Program.ShowUpdateProfileForm();
 		}
 		#endregion /UpdateProfileToolStripMenuItem_Click
 
 		#region ChangePasswordToolStripMenuItem_Click
+		//private void ChangePasswordToolStripMenuItem_Click(object sender, System.EventArgs e)
+		//{
+		//	ChangePasswordForm changePasswordForm = new ChangePasswordForm();
+
+		//	changePasswordForm.MdiParent = this;
+
+		//	changePasswordForm.Show();
+		//}
+
+		private ChangePasswordForm changePasswordForm;
+
 		private void ChangePasswordToolStripMenuItem_Click(object sender, System.EventArgs e)
 		{
-			Hide();
-			Program.ShowChangePasswordForm();
+			if ((changePasswordForm == null) || changePasswordForm.IsDisposed)
+			{
+				changePasswordForm = new ChangePasswordForm
+				{
+					MdiParent = this,
+				};
+			}
+
+			changePasswordForm.Show();
 		}
 		#endregion /ChangePasswordToolStripMenuItem_Click
+
+		#region DisplayUsersListFormToolStripMenuItem_Click
+		private Administrator.UsersListForm usersListForm;
+
+		private void DisplayUsersListFormToolStripMenuItem_Click(object sender, System.EventArgs e)
+		{
+			if ((usersListForm == null) || usersListForm.IsDisposed)
+			{
+				usersListForm = new Administrator.UsersListForm
+				{
+					MdiParent = this,
+				};
+			}
+
+			usersListForm.Show();
+		}
+		#endregion /DisplayUsersListFormToolStripMenuItem_Click
+
+		private void MainForm_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
+		{
+			System.Windows.Forms.Application.Exit();
+		}
 	}
 }

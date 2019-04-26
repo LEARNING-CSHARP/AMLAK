@@ -178,9 +178,9 @@
 			// 
 			this.resetButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.resetButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.resetButton.Location = new System.Drawing.Point(121, 122);
+			this.resetButton.Location = new System.Drawing.Point(88, 89);
 			this.resetButton.Name = "resetButton";
-			this.resetButton.Size = new System.Drawing.Size(100, 23);
+			this.resetButton.Size = new System.Drawing.Size(133, 56);
 			this.resetButton.TabIndex = 2;
 			this.resetButton.Text = "&حالت اولیه";
 			this.resetButton.UseVisualStyleBackColor = false;
@@ -220,7 +220,7 @@
 			this.Controls.Add(this.mainformButton);
 			this.Controls.Add(this.exitButton);
 			this.Controls.Add(this.changepasswordGroupBox);
-			this.MaximumSize = new System.Drawing.Size(600, 190);
+			this.MaximumSize = new System.Drawing.Size(800, 190);
 			this.MinimumSize = new System.Drawing.Size(460, 190);
 			this.Name = "ChangePasswordForm";
 			this.Text = "تغییر گذر واژه";

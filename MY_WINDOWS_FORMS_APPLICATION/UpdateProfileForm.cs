@@ -59,8 +59,6 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 		#region ChangePasswordLinkLabel_LinkClicked
 		private void ChangePasswordLinkLabel_LinkClicked(object sender, System.Windows.Forms.LinkLabelLinkClickedEventArgs e)
 		{
-			Hide();
-			Program.ShowChangePasswordForm();
 		}
 		#endregion /ChangePasswordLinkLabel_LinkClicked
 

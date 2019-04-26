@@ -30,16 +30,19 @@
 			this.logoutToolStripMenuItem = new Dtx.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new Dtx.Windows.Forms.ToolStripMenuItem();
 			this.exitToolStripMenuItem = new Dtx.Windows.Forms.ToolStripMenuItem();
-			this.statusStrip1 = new Dtx.Windows.Forms.StatusStrip();
+			this.administratorToolStripMenuItem = new Dtx.Windows.Forms.ToolStripMenuItem();
+			this.displayUsersListFormToolStripMenuItem = new Dtx.Windows.Forms.ToolStripMenuItem();
+			this.myStatusStrip = new Dtx.Windows.Forms.StatusStrip();
 			this.welcomeToolStripStatusLabel = new Dtx.Windows.Forms.ToolStripStatusLabel();
 			this.myMenuStrip.SuspendLayout();
-			this.statusStrip1.SuspendLayout();
+			this.myStatusStrip.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// myMenuStrip
 			// 
 			this.myMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.settingsToolStripMenuItem});
+            this.settingsToolStripMenuItem,
+            this.administratorToolStripMenuItem});
 			this.myMenuStrip.Location = new System.Drawing.Point(0, 0);
 			this.myMenuStrip.Name = "myMenuStrip";
 			this.myMenuStrip.Size = new System.Drawing.Size(624, 24);
@@ -98,15 +101,30 @@
 			this.exitToolStripMenuItem.Text = "&خروج";
 			this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
 			// 
-			// statusStrip1
+			// administratorToolStripMenuItem
 			// 
-			this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.administratorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.displayUsersListFormToolStripMenuItem});
+			this.administratorToolStripMenuItem.Name = "administratorToolStripMenuItem";
+			this.administratorToolStripMenuItem.Size = new System.Drawing.Size(106, 20);
+			this.administratorToolStripMenuItem.Text = "تنظیمات مدیریتی";
+			// 
+			// displayUsersListFormToolStripMenuItem
+			// 
+			this.displayUsersListFormToolStripMenuItem.Name = "displayUsersListFormToolStripMenuItem";
+			this.displayUsersListFormToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+			this.displayUsersListFormToolStripMenuItem.Text = "مدیریت کاربران";
+			this.displayUsersListFormToolStripMenuItem.Click += new System.EventHandler(this.DisplayUsersListFormToolStripMenuItem_Click);
+			// 
+			// myStatusStrip
+			// 
+			this.myStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.welcomeToolStripStatusLabel});
-			this.statusStrip1.Location = new System.Drawing.Point(0, 294);
-			this.statusStrip1.Name = "statusStrip1";
-			this.statusStrip1.Size = new System.Drawing.Size(624, 22);
-			this.statusStrip1.TabIndex = 3;
-			this.statusStrip1.Text = "statusStrip1";
+			this.myStatusStrip.Location = new System.Drawing.Point(0, 294);
+			this.myStatusStrip.Name = "myStatusStrip";
+			this.myStatusStrip.Size = new System.Drawing.Size(624, 22);
+			this.myStatusStrip.TabIndex = 3;
+			this.myStatusStrip.Text = "statusStrip1";
 			// 
 			// welcomeToolStripStatusLabel
 			// 
@@ -119,7 +137,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(624, 316);
-			this.Controls.Add(this.statusStrip1);
+			this.Controls.Add(this.myStatusStrip);
 			this.Controls.Add(this.myMenuStrip);
 			this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.IsMdiContainer = true;
@@ -130,11 +148,12 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "املاک";
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
 			this.Load += new System.EventHandler(this.MainForm_Load);
 			this.myMenuStrip.ResumeLayout(false);
 			this.myMenuStrip.PerformLayout();
-			this.statusStrip1.ResumeLayout(false);
-			this.statusStrip1.PerformLayout();
+			this.myStatusStrip.ResumeLayout(false);
+			this.myStatusStrip.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -150,7 +169,9 @@
 		private Dtx.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
 		private Dtx.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
 		private Dtx.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-		private Dtx.Windows.Forms.StatusStrip statusStrip1;
+		private Dtx.Windows.Forms.StatusStrip myStatusStrip;
 		private Dtx.Windows.Forms.ToolStripStatusLabel welcomeToolStripStatusLabel;
+		private Dtx.Windows.Forms.ToolStripMenuItem administratorToolStripMenuItem;
+		private Dtx.Windows.Forms.ToolStripMenuItem displayUsersListFormToolStripMenuItem;
 	}
 }

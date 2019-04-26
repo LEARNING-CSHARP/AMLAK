@@ -1,4 +1,6 @@
-﻿namespace MY_WINDOWS_FORMS_APPLICATION
+﻿using System.Linq;
+
+namespace MY_WINDOWS_FORMS_APPLICATION
 {
 	internal static class Program
 	{
@@ -94,59 +96,80 @@
 		// **************************************************
 
 		// **************************************************
-		#region UpdateProfileForm
-		private static UpdateProfileForm updateProfileForm;
-		public static UpdateProfileForm UpdateProfileForm
-		{
-			get
-			{
-				if (updateProfileForm == null)
-				{
-					updateProfileForm =
-						new UpdateProfileForm();
-				}
-				return updateProfileForm;
-			}
-		}
-
-		public static void ShowUpdateProfileForm()
-		{
-			UpdateProfileForm.Initialize();
-			UpdateProfileForm.Show();
-		}
-		#endregion /UpdateProfileForm
-		// **************************************************
-
-		// **************************************************
-		#region ChangePasswordForm
-		private static ChangePasswordForm changePasswordForm;
-		public static	ChangePasswordForm ChangPasswordForm
-		{
-			get
-			{
-				if (changePasswordForm==null)
-				{
-					changePasswordForm =
-						new ChangePasswordForm();
-				}
-				return changePasswordForm;
-			}
-		}
-
-		public static void ShowChangePasswordForm()
-		{
-			ChangPasswordForm.Initialize();
-			ChangPasswordForm.Show();
-		}
-
-		#endregion /ChangePasswordForm
-		// **************************************************
-
-		// **************************************************
 		#region Main
 		[System.STAThread]
 		static void Main()
 		{
+			// **************************************************
+			Models.DatabaseContext databaseContext = null;
+
+			try
+			{
+				databaseContext =
+					new Models.DatabaseContext();
+
+				string username = "Administrator";
+
+				//Models.User adminUser =
+				//	databaseContext.Users
+				//	.Where(current => current.Username == username)
+				//	.FirstOrDefault();
+
+				Models.User adminUser =
+					databaseContext.Users
+					.Where(current => string.Compare(current.Username, username, true) == 0)
+					.FirstOrDefault();
+
+				if (adminUser == null)
+				{
+					//adminUser = new Models.User();
+
+					//adminUser.IsActive = true;
+					//adminUser.IsAdministrator = true;
+
+					//adminUser.Username = username;
+					//adminUser.Password = "1234512345";
+
+					adminUser = new Models.User
+					{
+						IsActive = true,
+						IsAdministrator = true,
+
+						Username = username,
+						Password = "1234512345",
+					};
+
+					databaseContext.Users.Add(adminUser);
+				}
+				else
+				{
+					if (adminUser.IsActive == false)
+					{
+						adminUser.IsActive = true;
+					}
+
+					if (adminUser.IsAdministrator == false)
+					{
+						adminUser.IsAdministrator = true;
+					}
+				}
+
+				databaseContext.SaveChanges();
+			}
+			catch (System.Exception ex)
+			{
+				Dtx.Windows.Forms.MessageBox.ShowError(ex.Message);
+			}
+			finally
+			{
+				if (databaseContext != null)
+				{
+					databaseContext.Dispose();
+					databaseContext = null;
+				}
+			}
+			// **************************************************
+
 			// **************************************************
 			System.Windows.Forms.Application.EnableVisualStyles();
 			System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
@@ -173,6 +196,5 @@
 			// **************************************************
 		}
 		#endregion /Main
-
 	}
 }
