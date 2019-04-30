@@ -11,21 +11,50 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 		#region ChangePasswordForm_Load
 		private void ChangePasswordForm_Load(object sender, System.EventArgs e)
 		{
-			//Initialize();
+			InitializingLoading();
 		}
 		#endregion
+
+		#region InitializingLoading
+		public void InitializingLoading()
+		{
+			try
+			{
+				Initialize();
+				Models.User authenticatuser = Program.AuthenticatedUser;
+
+				if (authenticatuser != null)
+				{
+					string name = authenticatuser.FullName;
+
+					if (string.IsNullOrWhiteSpace(name) == true)
+					{
+						name = authenticatuser.Username;
+					}
+					string message =
+						$"{ name } خوش آمدی.";
+
+					welcomToolStripStatusLabel.Text = message;
+				}
+			}
+			catch (System.Exception es)
+			{
+				Dtx.Windows.Forms.MessageBox.ShowError(es.Message);
+			}
+		}
+		#endregion /InitializingLoading
 
 		#region Initialize
 		public void Initialize()
 		{
-			oldpasswordTextBox.Text = string.Empty;
-			oldpasswordTextBox.Focus();
+			oldpasswordLabel.Text = string.Empty;
 			newpasswordTextBox.Text = string.Empty;
 			confirampasswordTextBox.Text = string.Empty;
 		}
-		#endregion /Initialize
+		#endregion
 
 		#region ShowoldpawwordPictureBox_Click
+
 		private void ShowoldpawwordPictureBox_Click(object sender, System.EventArgs e)
 		{
 			if (oldpasswordTextBox.UseSystemPasswordChar == true)
@@ -39,6 +68,7 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 				showoldpawwordPictureBox.Image = Properties.Resources.icons8_eye_100;
 			}
 		}
+
 		#endregion /ShowoldpawwordPictureBox_Click
 
 		#region ShownewpasswordPictureBox_Click
@@ -71,7 +101,6 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 				showconfirmpasswordPictureBox.Image = Properties.Resources.icons8_eye_100;
 			}
 		}
-
 		#endregion /ShowconfirmpasswordPictureBox_Click
 
 		#region ChangepasswordButton_Click
@@ -135,42 +164,25 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 						return;
 					}
 				}
+				//------------------------------------------------------------------------------------------
+				// Validation
+				//------------------------------------------------------------------------------------------
+
+				databaseContext.Users.Add(passworduser);
+				databaseContext.SaveChanges();
 
 				string changeConfirm =
 					"گذرواژه با موفقیت تغییر یافت.";
 
 				Dtx.Windows.Forms.MessageBox.ShowInformation(changeConfirm);
+
 				Initialize();
 			}
-			catch (System.Exception)
+			catch (System.Exception es)
 			{
-				throw;
+				Dtx.Windows.Forms.MessageBox.ShowError(es.Message);
 			}
 		}
 		#endregion /ChangepasswordButton_Click
-
-		#region ResetButton_Click
-		private void ResetButton_Click(object sender, System.EventArgs e)
-		{
-			Initialize();
-		}
-
-		#endregion /ResetButton_Click
-
-		#region MainformButton_Click
-		private void MainformButton_Click(object sender, System.EventArgs e)
-		{
-			Hide();
-			Program.ShowMainForm();
-		}
-		#endregion /MainformButton_Click
-
-		#region ExitButton_Click
-		private void ExitButton_Click(object sender, System.EventArgs e)
-		{
-			Infrastructure.Utility.Exit();
-		}
-		#endregion /ExitButton_Click
-
 	}
 }

@@ -9,6 +9,8 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 			InitializeComponent();
 		}
 
+		
+
 		#region MainForm_Load
 		private void MainForm_Load(object sender, System.EventArgs e)
 		{
@@ -66,34 +68,34 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 		#endregion /ExitToolStripMenuItem_Click
 
 		#region UpdateProfileToolStripMenuItem_Click
+
+		private UpdateProfileForm updateProfileForm;
 		private void UpdateProfileToolStripMenuItem_Click(object sender, System.EventArgs e)
 		{
+			if (updateProfileForm == null || updateProfileForm.IsDisposed == true)
+			{
+				updateProfileForm = new UpdateProfileForm
+				{
+					MdiParent = this,
+				};
+				updateProfileForm.Show();
+			}
 		}
 		#endregion /UpdateProfileToolStripMenuItem_Click
 
 		#region ChangePasswordToolStripMenuItem_Click
-		//private void ChangePasswordToolStripMenuItem_Click(object sender, System.EventArgs e)
-		//{
-		//	ChangePasswordForm changePasswordForm = new ChangePasswordForm();
-
-		//	changePasswordForm.MdiParent = this;
-
-		//	changePasswordForm.Show();
-		//}
 
 		private ChangePasswordForm changePasswordForm;
-
 		private void ChangePasswordToolStripMenuItem_Click(object sender, System.EventArgs e)
 		{
-			if ((changePasswordForm == null) || changePasswordForm.IsDisposed)
+			if (changePasswordForm == null || changePasswordForm.IsDisposed == true)
 			{
-				changePasswordForm = new ChangePasswordForm
+				changePasswordForm = new ChangePasswordForm()
 				{
 					MdiParent = this,
 				};
+				changePasswordForm.Show();
 			}
-
-			changePasswordForm.Show();
 		}
 		#endregion /ChangePasswordToolStripMenuItem_Click
 

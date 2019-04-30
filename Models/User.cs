@@ -56,6 +56,8 @@
 		// **********
 
 		// **********
+		[System.ComponentModel.DataAnnotations.StringLength
+			(maximumLength: 200)]
 		[System.ComponentModel.Browsable(browsable: false)]
 		public string Description { get; set; }
 		// **********
