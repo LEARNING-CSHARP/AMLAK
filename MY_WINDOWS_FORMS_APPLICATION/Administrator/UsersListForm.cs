@@ -48,10 +48,23 @@ namespace MY_WINDOWS_FORMS_APPLICATION.Administrator
 			string selectedUsername =
 				myDataGridView.CurrentRow.Cells[2].Value.ToString();
 
-			System.Windows.Forms.MessageBox.Show(selectedUsername);
+			//System.Windows.Forms.MessageBox.Show(selectedUsername);
+
+			UpdateUserForm updateUserForm = new UpdateUserForm
+			{
+				MyUserListForm = this,
+				Username = selectedUsername,
+			};
+
+			updateUserForm.ShowDialog();
 		}
 
 		private void SearchButton_Click(object sender, System.EventArgs e)
+		{
+			Search();
+		}
+
+		public void Search()
 		{
 			usernameTextBox.Text = Dtx.Text.Utility.FixText(usernameTextBox.Text);
 			fullNameTextBox.Text = Dtx.Text.Utility.FixText(fullNameTextBox.Text);

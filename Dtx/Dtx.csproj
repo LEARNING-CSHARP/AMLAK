@@ -61,9 +61,6 @@
     <Compile Include="Windows\Forms\Label.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Windows\Forms\linkLabel.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Windows\Forms\MenuStrip.cs">
       <SubType>Component</SubType>
     </Compile>

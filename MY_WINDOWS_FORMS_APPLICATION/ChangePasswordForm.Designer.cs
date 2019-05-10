@@ -38,12 +38,9 @@
 			this.newpasswordLlabel = new Dtx.Windows.Forms.Label();
 			this.oldpasswordTextBox = new Dtx.Windows.Forms.TextBox();
 			this.oldpasswordLabel = new Dtx.Windows.Forms.Label();
-			this.statusStrip1 = new Dtx.Windows.Forms.StatusStrip();
-			this.welcomToolStripStatusLabel = new Dtx.Windows.Forms.ToolStripStatusLabel();
 			((System.ComponentModel.ISupportInitialize)(this.showconfirmpasswordPictureBox)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.shownewpasswordPictureBox)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.showoldpawwordPictureBox)).BeginInit();
-			this.statusStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// ChangepasswordButton
@@ -51,7 +48,7 @@
 			this.ChangepasswordButton.Location = new System.Drawing.Point(106, 93);
 			this.ChangepasswordButton.Name = "ChangepasswordButton";
 			this.ChangepasswordButton.Size = new System.Drawing.Size(100, 23);
-			this.ChangepasswordButton.TabIndex = 1;
+			this.ChangepasswordButton.TabIndex = 6;
 			this.ChangepasswordButton.Text = "تغییر &گذرواژه";
 			this.ChangepasswordButton.UseVisualStyleBackColor = false;
 			this.ChangepasswordButton.Click += new System.EventHandler(this.ChangepasswordButton_Click);
@@ -100,7 +97,7 @@
 			this.confirampasswordTextBox.MaxLength = 40;
 			this.confirampasswordTextBox.Name = "confirampasswordTextBox";
 			this.confirampasswordTextBox.Size = new System.Drawing.Size(239, 21);
-			this.confirampasswordTextBox.TabIndex = 14;
+			this.confirampasswordTextBox.TabIndex = 5;
 			this.confirampasswordTextBox.UseSystemPasswordChar = true;
 			// 
 			// confirampasswordLabel
@@ -111,7 +108,7 @@
 			this.confirampasswordLabel.Location = new System.Drawing.Point(12, 66);
 			this.confirampasswordLabel.Name = "confirampasswordLabel";
 			this.confirampasswordLabel.Size = new System.Drawing.Size(88, 13);
-			this.confirampasswordLabel.TabIndex = 13;
+			this.confirampasswordLabel.TabIndex = 4;
 			this.confirampasswordLabel.Text = "&تکرار گذرواژه جدید";
 			// 
 			// newpasswordTextBox
@@ -122,7 +119,7 @@
 			this.newpasswordTextBox.MaxLength = 40;
 			this.newpasswordTextBox.Name = "newpasswordTextBox";
 			this.newpasswordTextBox.Size = new System.Drawing.Size(239, 21);
-			this.newpasswordTextBox.TabIndex = 12;
+			this.newpasswordTextBox.TabIndex = 3;
 			this.newpasswordTextBox.UseSystemPasswordChar = true;
 			// 
 			// newpasswordLlabel
@@ -133,7 +130,7 @@
 			this.newpasswordLlabel.Location = new System.Drawing.Point(12, 39);
 			this.newpasswordLlabel.Name = "newpasswordLlabel";
 			this.newpasswordLlabel.Size = new System.Drawing.Size(64, 13);
-			this.newpasswordLlabel.TabIndex = 11;
+			this.newpasswordLlabel.TabIndex = 2;
 			this.newpasswordLlabel.Text = "گذرواژه &جدید";
 			// 
 			// oldpasswordTextBox
@@ -144,7 +141,7 @@
 			this.oldpasswordTextBox.MaxLength = 40;
 			this.oldpasswordTextBox.Name = "oldpasswordTextBox";
 			this.oldpasswordTextBox.Size = new System.Drawing.Size(239, 21);
-			this.oldpasswordTextBox.TabIndex = 10;
+			this.oldpasswordTextBox.TabIndex = 1;
 			this.oldpasswordTextBox.UseSystemPasswordChar = true;
 			// 
 			// oldpasswordLabel
@@ -155,25 +152,8 @@
 			this.oldpasswordLabel.Location = new System.Drawing.Point(12, 12);
 			this.oldpasswordLabel.Name = "oldpasswordLabel";
 			this.oldpasswordLabel.Size = new System.Drawing.Size(64, 13);
-			this.oldpasswordLabel.TabIndex = 9;
+			this.oldpasswordLabel.TabIndex = 0;
 			this.oldpasswordLabel.Text = "گذرواژه &قدیم";
-			// 
-			// statusStrip1
-			// 
-			this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.welcomToolStripStatusLabel});
-			this.statusStrip1.Location = new System.Drawing.Point(0, 124);
-			this.statusStrip1.Name = "statusStrip1";
-			this.statusStrip1.Size = new System.Drawing.Size(384, 22);
-			this.statusStrip1.TabIndex = 18;
-			this.statusStrip1.Text = "statusStrip1";
-			// 
-			// welcomToolStripStatusLabel
-			// 
-			this.welcomToolStripStatusLabel.BackColor = System.Drawing.SystemColors.Control;
-			this.welcomToolStripStatusLabel.Name = "welcomToolStripStatusLabel";
-			this.welcomToolStripStatusLabel.Size = new System.Drawing.Size(32, 17);
-			this.welcomToolStripStatusLabel.Text = "-----";
 			// 
 			// ChangePasswordForm
 			// 
@@ -181,7 +161,6 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(384, 146);
-			this.Controls.Add(this.statusStrip1);
 			this.Controls.Add(this.showconfirmpasswordPictureBox);
 			this.Controls.Add(this.shownewpasswordPictureBox);
 			this.Controls.Add(this.showoldpawwordPictureBox);
@@ -200,8 +179,6 @@
 			((System.ComponentModel.ISupportInitialize)(this.showconfirmpasswordPictureBox)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.shownewpasswordPictureBox)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.showoldpawwordPictureBox)).EndInit();
-			this.statusStrip1.ResumeLayout(false);
-			this.statusStrip1.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -218,7 +195,5 @@
 		private Dtx.Windows.Forms.Label newpasswordLlabel;
 		private Dtx.Windows.Forms.TextBox oldpasswordTextBox;
 		private Dtx.Windows.Forms.Label oldpasswordLabel;
-		private Dtx.Windows.Forms.StatusStrip statusStrip1;
-		private Dtx.Windows.Forms.ToolStripStatusLabel welcomToolStripStatusLabel;
 	}
 }

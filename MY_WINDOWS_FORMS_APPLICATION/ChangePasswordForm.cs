@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+
 namespace MY_WINDOWS_FORMS_APPLICATION
 {
 	public partial class ChangePasswordForm : Infrastructure.BaseForm
@@ -11,38 +12,8 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 		#region ChangePasswordForm_Load
 		private void ChangePasswordForm_Load(object sender, System.EventArgs e)
 		{
-			InitializingLoading();
 		}
-		#endregion
-
-		#region InitializingLoading
-		public void InitializingLoading()
-		{
-			try
-			{
-				Initialize();
-				Models.User authenticatuser = Program.AuthenticatedUser;
-
-				if (authenticatuser != null)
-				{
-					string name = authenticatuser.FullName;
-
-					if (string.IsNullOrWhiteSpace(name) == true)
-					{
-						name = authenticatuser.Username;
-					}
-					string message =
-						$"{ name } خوش آمدی.";
-
-					welcomToolStripStatusLabel.Text = message;
-				}
-			}
-			catch (System.Exception es)
-			{
-				Dtx.Windows.Forms.MessageBox.ShowError(es.Message);
-			}
-		}
-		#endregion /InitializingLoading
+		#endregion /ChangePasswordForm_Load
 
 		#region Initialize
 		public void Initialize()
@@ -51,10 +22,9 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 			newpasswordTextBox.Text = string.Empty;
 			confirampasswordTextBox.Text = string.Empty;
 		}
-		#endregion
+		#endregion /Initialize
 
 		#region ShowoldpawwordPictureBox_Click
-
 		private void ShowoldpawwordPictureBox_Click(object sender, System.EventArgs e)
 		{
 			if (oldpasswordTextBox.UseSystemPasswordChar == true)
@@ -68,7 +38,6 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 				showoldpawwordPictureBox.Image = Properties.Resources.icons8_eye_100;
 			}
 		}
-
 		#endregion /ShowoldpawwordPictureBox_Click
 
 		#region ShownewpasswordPictureBox_Click
@@ -106,81 +75,96 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 		#region ChangepasswordButton_Click
 		private void ChangepasswordButton_Click(object sender, System.EventArgs e)
 		{
+			string message = string.Empty;
+
+			if (string.IsNullOrWhiteSpace(oldpasswordTextBox.Text))
+			{
+				message =
+					"لطفا گذرواژه قدیمی را وارد نمایید.";
+
+				Dtx.Windows.Forms.MessageBox.ShowError(message);
+				oldpasswordTextBox.Focus();
+
+				return;
+			}
+
+			if (string.IsNullOrWhiteSpace(newpasswordTextBox.Text))
+			{
+				message =
+					"لطفا گذرواژه جدید را وارد نمایید.";
+
+				Dtx.Windows.Forms.MessageBox.ShowError(message);
+				newpasswordTextBox.Focus();
+
+				return;
+			}
+
+			if (string.IsNullOrWhiteSpace(confirampasswordTextBox.Text))
+			{
+				message =
+					"لطفا تایید گذرواژه را وارد نمایید.";
+
+				Dtx.Windows.Forms.MessageBox.ShowError(message);
+				confirampasswordTextBox.Focus();
+
+				return;
+			}
+
+			if (newpasswordTextBox.Text != confirampasswordTextBox.Text)
+			{
+				message =
+					"دو گذرواژه با یکدیگر تطبیق ندارند. لطفا مجددا اقدام نمایید.";
+
+				Dtx.Windows.Forms.MessageBox.ShowError(message);
+				newpasswordTextBox.SelectAll();
+				newpasswordTextBox.Focus();
+
+				return;
+			}
+
 			Models.DatabaseContext databaseContext = null;
+
 			try
 			{
 				databaseContext =
 					new Models.DatabaseContext();
 
-				if (string.IsNullOrWhiteSpace(oldpasswordTextBox.Text))
-				{
-					string message =
-						"لطفا گذرواژه قدیمی را وارد نمایید.";
-					Dtx.Windows.Forms.MessageBox.ShowError(message);
-					oldpasswordTextBox.Focus();
-					return;
-				}
-
-				if (string.IsNullOrWhiteSpace(newpasswordTextBox.Text))
-				{
-					string message =
-						"لطفا گذرواژه جدید را وارد نمایید.";
-					Dtx.Windows.Forms.MessageBox.ShowError(message);
-					newpasswordTextBox.Focus();
-					return;
-				}
-
-				if (string.IsNullOrWhiteSpace(confirampasswordTextBox.Text))
-				{
-					string message =
-						"لطفا تایید گذرواژه را وارد نمایید.";
-					Dtx.Windows.Forms.MessageBox.ShowError(message);
-					confirampasswordTextBox.Focus();
-					return;
-				}
-
-				Models.User passworduser =
+				Models.User user =
 					databaseContext.Users
 					.Where(current => string.Compare(current.Username, Program.LoginForm.usernameTextBox.Text, false) == 0)
 					.FirstOrDefault();
-				if (passworduser != null)
-				{
-					if (string.Compare(passworduser.Password, oldpasswordTextBox.Text, false) != 0)
-					{
-						string message =
-							"گذرواژه صحیح نمی باشد. لطفا مجددا اقدام نمایید.";
-						Dtx.Windows.Forms.MessageBox.ShowError(message);
-						oldpasswordTextBox.SelectAll();
-						oldpasswordTextBox.Focus();
-						return;
-					}
-					else if (newpasswordTextBox.Text != confirampasswordTextBox.Text)
-					{
-						string message =
-						"دو گذرواژه با یکدیگر تطبیق ندارند. لطفا مجددا اقدام نمایید.";
-						Dtx.Windows.Forms.MessageBox.ShowError(message);
-						newpasswordTextBox.SelectAll();
-						newpasswordTextBox.Focus();
-						return;
-					}
-				}
-				//------------------------------------------------------------------------------------------
-				// Validation
-				//------------------------------------------------------------------------------------------
 
-				databaseContext.Users.Add(passworduser);
+				if (user == null)
+				{
+					System.Windows.Forms.Application.Exit();
+				}
+
+				if (string.Compare(user.Password, oldpasswordTextBox.Text, false) != 0)
+				{
+					message =
+						"گذرواژه صحیح نمی باشد. لطفا مجددا اقدام نمایید.";
+
+					Dtx.Windows.Forms.MessageBox.ShowError(message);
+					oldpasswordTextBox.SelectAll();
+					oldpasswordTextBox.Focus();
+
+					return;
+				}
+
+				user.Password = newpasswordTextBox.Text;
+
 				databaseContext.SaveChanges();
 
-				string changeConfirm =
+				message =
 					"گذرواژه با موفقیت تغییر یافت.";
 
-				Dtx.Windows.Forms.MessageBox.ShowInformation(changeConfirm);
+				Dtx.Windows.Forms.MessageBox.ShowInformation(message);
 
 				Initialize();
 			}
-			catch (System.Exception es)
+			catch (System.Exception ex)
 			{
-				Dtx.Windows.Forms.MessageBox.ShowError(es.Message);
+				Dtx.Windows.Forms.MessageBox.ShowError(ex.Message);
 			}
 		}
 		#endregion /ChangepasswordButton_Click

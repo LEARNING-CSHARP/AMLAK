@@ -9,8 +9,6 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 			InitializeComponent();
 		}
 
-		
-
 		#region MainForm_Load
 		private void MainForm_Load(object sender, System.EventArgs e)
 		{
@@ -22,32 +20,36 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 		{
 			Models.User authenticatedUser = Program.AuthenticatedUser;
 
-			if (authenticatedUser != null)
+			if (authenticatedUser == null)
 			{
-				string name = authenticatedUser.FullName;
-
-				if (string.IsNullOrWhiteSpace(name))
-				{
-					name = authenticatedUser.Username;
-				}
-
-				welcomeToolStripStatusLabel.Text = $"{ name } خوش آمدید.";
-
-				// **************************************************
-				//if (authenticatedUser.IsAdministrator)
-				//{
-				//	administratorToolStripMenuItem.Visible = true;
-				//}
-				//else
-				//{
-				//	administratorToolStripMenuItem.Visible = false;
-				//}
-				// **************************************************
-
-				// **************************************************
-				administratorToolStripMenuItem.Visible = authenticatedUser.IsAdministrator;
-				// **************************************************
+				System.Windows.Forms.Application.Exit();
 			}
+
+			string name =
+				authenticatedUser.FullName;
+
+			if (string.IsNullOrWhiteSpace(name))
+			{
+				name =
+					authenticatedUser.Username;
+			}
+
+			welcomeToolStripStatusLabel.Text = $"{ name } خوش آمدید.";
+
+			// **************************************************
+			//if (authenticatedUser.IsAdministrator)
+			//{
+			//	administratorToolStripMenuItem.Visible = true;
+			//}
+			//else
+			//{
+			//	administratorToolStripMenuItem.Visible = false;
+			//}
+			// **************************************************
+
+			// **************************************************
+			administratorToolStripMenuItem.Visible = authenticatedUser.IsAdministrator;
+			// **************************************************
 		}
 		#endregion /Initialize
 
