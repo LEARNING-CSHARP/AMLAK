@@ -28,8 +28,8 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.label1 = new Dtx.Windows.Forms.Label();
-			this.label2 = new Dtx.Windows.Forms.Label();
+			this.fullNameLabel = new Dtx.Windows.Forms.Label();
+			this.descriptionLabel = new Dtx.Windows.Forms.Label();
 			this.fullNameTextBox = new Dtx.Windows.Forms.TextBox();
 			this.descriptionTextBox = new Dtx.Windows.Forms.TextBox();
 			this.isActiveCheckBox = new Dtx.Windows.Forms.CheckBox();
@@ -37,63 +37,71 @@
 			this.saveButton = new Dtx.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
-			// label1
+			// fullNameLabel
 			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(12, 15);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(35, 13);
-			this.label1.TabIndex = 0;
-			this.label1.Text = "label1";
+			this.fullNameLabel.AutoSize = true;
+			this.fullNameLabel.Location = new System.Drawing.Point(12, 15);
+			this.fullNameLabel.Name = "fullNameLabel";
+			this.fullNameLabel.Size = new System.Drawing.Size(89, 13);
+			this.fullNameLabel.TabIndex = 0;
+			this.fullNameLabel.Text = "&نام و نام خانوادگی";
 			// 
-			// label2
+			// descriptionLabel
 			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(12, 42);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(35, 13);
-			this.label2.TabIndex = 1;
-			this.label2.Text = "label2";
+			this.descriptionLabel.AutoSize = true;
+			this.descriptionLabel.Location = new System.Drawing.Point(12, 42);
+			this.descriptionLabel.Name = "descriptionLabel";
+			this.descriptionLabel.Size = new System.Drawing.Size(47, 13);
+			this.descriptionLabel.TabIndex = 2;
+			this.descriptionLabel.Text = "&توضیحات";
 			// 
 			// fullNameTextBox
 			// 
-			this.fullNameTextBox.Location = new System.Drawing.Point(133, 12);
+			this.fullNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.fullNameTextBox.Location = new System.Drawing.Point(107, 12);
 			this.fullNameTextBox.Name = "fullNameTextBox";
-			this.fullNameTextBox.Size = new System.Drawing.Size(233, 21);
-			this.fullNameTextBox.TabIndex = 2;
+			this.fullNameTextBox.Size = new System.Drawing.Size(265, 21);
+			this.fullNameTextBox.TabIndex = 1;
 			// 
 			// descriptionTextBox
 			// 
-			this.descriptionTextBox.Location = new System.Drawing.Point(133, 39);
+			this.descriptionTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.descriptionTextBox.Location = new System.Drawing.Point(107, 39);
 			this.descriptionTextBox.Multiline = true;
 			this.descriptionTextBox.Name = "descriptionTextBox";
 			this.descriptionTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.descriptionTextBox.Size = new System.Drawing.Size(233, 20);
+			this.descriptionTextBox.Size = new System.Drawing.Size(265, 55);
 			this.descriptionTextBox.TabIndex = 3;
 			// 
 			// isActiveCheckBox
 			// 
+			this.isActiveCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.isActiveCheckBox.AutoSize = true;
-			this.isActiveCheckBox.Location = new System.Drawing.Point(133, 66);
+			this.isActiveCheckBox.Location = new System.Drawing.Point(107, 100);
 			this.isActiveCheckBox.Name = "isActiveCheckBox";
-			this.isActiveCheckBox.Size = new System.Drawing.Size(77, 17);
+			this.isActiveCheckBox.Size = new System.Drawing.Size(47, 17);
 			this.isActiveCheckBox.TabIndex = 4;
-			this.isActiveCheckBox.Text = "checkBox1";
+			this.isActiveCheckBox.Text = "&فعال";
 			this.isActiveCheckBox.UseVisualStyleBackColor = true;
 			// 
 			// isAdministratorCheckBox
 			// 
+			this.isAdministratorCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.isAdministratorCheckBox.AutoSize = true;
-			this.isAdministratorCheckBox.Location = new System.Drawing.Point(133, 89);
+			this.isAdministratorCheckBox.Location = new System.Drawing.Point(107, 123);
 			this.isAdministratorCheckBox.Name = "isAdministratorCheckBox";
-			this.isAdministratorCheckBox.Size = new System.Drawing.Size(77, 17);
+			this.isAdministratorCheckBox.Size = new System.Drawing.Size(59, 17);
 			this.isAdministratorCheckBox.TabIndex = 5;
-			this.isAdministratorCheckBox.Text = "checkBox1";
+			this.isAdministratorCheckBox.Text = "&مدیریت";
 			this.isAdministratorCheckBox.UseVisualStyleBackColor = true;
 			// 
 			// saveButton
 			// 
-			this.saveButton.Location = new System.Drawing.Point(133, 112);
+			this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.saveButton.Location = new System.Drawing.Point(107, 146);
 			this.saveButton.Name = "saveButton";
 			this.saveButton.Size = new System.Drawing.Size(75, 23);
 			this.saveButton.TabIndex = 6;
@@ -106,14 +114,16 @@
 			this.AcceptButton = this.saveButton;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(378, 265);
+			this.ClientSize = new System.Drawing.Size(384, 176);
 			this.Controls.Add(this.saveButton);
 			this.Controls.Add(this.isAdministratorCheckBox);
 			this.Controls.Add(this.isActiveCheckBox);
 			this.Controls.Add(this.descriptionTextBox);
 			this.Controls.Add(this.fullNameTextBox);
-			this.Controls.Add(this.label2);
-			this.Controls.Add(this.label1);
+			this.Controls.Add(this.descriptionLabel);
+			this.Controls.Add(this.fullNameLabel);
+			this.MaximumSize = new System.Drawing.Size(800, 400);
+			this.MinimumSize = new System.Drawing.Size(400, 215);
 			this.Name = "UpdateUserForm";
 			this.Text = "ویرایش اطلاعات کاربر";
 			this.Load += new System.EventHandler(this.UpdateUserForm_Load);
@@ -124,8 +134,8 @@
 
 		#endregion
 
-		private Dtx.Windows.Forms.Label label1;
-		private Dtx.Windows.Forms.Label label2;
+		private Dtx.Windows.Forms.Label fullNameLabel;
+		private Dtx.Windows.Forms.Label descriptionLabel;
 		private Dtx.Windows.Forms.TextBox fullNameTextBox;
 		private Dtx.Windows.Forms.TextBox descriptionTextBox;
 		private Dtx.Windows.Forms.CheckBox isActiveCheckBox;

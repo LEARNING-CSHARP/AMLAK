@@ -88,6 +88,8 @@ namespace MY_WINDOWS_FORMS_APPLICATION.Administrator
 
 				// **************************************************
 				MyUserListForm.Search();
+				Program.AuthenticatedUser = user;
+				Program.MainForm.Initialize();
 				// **************************************************
 			}
 			catch (System.Exception ex)

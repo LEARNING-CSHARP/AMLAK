@@ -34,6 +34,8 @@
 			this.displayUsersListFormToolStripMenuItem = new Dtx.Windows.Forms.ToolStripMenuItem();
 			this.myStatusStrip = new Dtx.Windows.Forms.StatusStrip();
 			this.welcomeToolStripStatusLabel = new Dtx.Windows.Forms.ToolStripStatusLabel();
+			this.splitToolStripStatusLabel = new Dtx.Windows.Forms.ToolStripStatusLabel();
+			this.persianCalendarToolStripStatusLabel = new Dtx.Windows.Forms.ToolStripStatusLabel();
 			this.myMenuStrip.SuspendLayout();
 			this.myStatusStrip.SuspendLayout();
 			this.SuspendLayout();
@@ -119,7 +121,9 @@
 			// myStatusStrip
 			// 
 			this.myStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.welcomeToolStripStatusLabel});
+            this.welcomeToolStripStatusLabel,
+            this.splitToolStripStatusLabel,
+            this.persianCalendarToolStripStatusLabel});
 			this.myStatusStrip.Location = new System.Drawing.Point(0, 294);
 			this.myStatusStrip.Name = "myStatusStrip";
 			this.myStatusStrip.Size = new System.Drawing.Size(624, 22);
@@ -131,6 +135,18 @@
 			this.welcomeToolStripStatusLabel.Name = "welcomeToolStripStatusLabel";
 			this.welcomeToolStripStatusLabel.Size = new System.Drawing.Size(32, 17);
 			this.welcomeToolStripStatusLabel.Text = "-----";
+			// 
+			// splitToolStripStatusLabel
+			// 
+			this.splitToolStripStatusLabel.Name = "splitToolStripStatusLabel";
+			this.splitToolStripStatusLabel.Size = new System.Drawing.Size(10, 17);
+			this.splitToolStripStatusLabel.Text = "|";
+			// 
+			// persianCalendarToolStripStatusLabel
+			// 
+			this.persianCalendarToolStripStatusLabel.Name = "persianCalendarToolStripStatusLabel";
+			this.persianCalendarToolStripStatusLabel.Size = new System.Drawing.Size(40, 17);
+			this.persianCalendarToolStripStatusLabel.Text = "(-----)";
 			// 
 			// MainForm
 			// 
@@ -173,5 +189,7 @@
 		private Dtx.Windows.Forms.ToolStripStatusLabel welcomeToolStripStatusLabel;
 		private Dtx.Windows.Forms.ToolStripMenuItem administratorToolStripMenuItem;
 		private Dtx.Windows.Forms.ToolStripMenuItem displayUsersListFormToolStripMenuItem;
+		private Dtx.Windows.Forms.ToolStripStatusLabel splitToolStripStatusLabel;
+		private Dtx.Windows.Forms.ToolStripStatusLabel persianCalendarToolStripStatusLabel;
 	}
 }

@@ -19,23 +19,23 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 		public void Initialize()
 		{
 			oldpasswordLabel.Text = string.Empty;
-			newpasswordTextBox.Text = string.Empty;
-			confirampasswordTextBox.Text = string.Empty;
+			newPasswordTextBox.Text = string.Empty;
+			confiramPasswordTextBox.Text = string.Empty;
 		}
 		#endregion /Initialize
 
 		#region ShowoldpawwordPictureBox_Click
 		private void ShowoldpawwordPictureBox_Click(object sender, System.EventArgs e)
 		{
-			if (oldpasswordTextBox.UseSystemPasswordChar == true)
+			if (oldPasswordTextBox.UseSystemPasswordChar == true)
 			{
-				oldpasswordTextBox.UseSystemPasswordChar = false;
-				showoldpawwordPictureBox.Image = Properties.Resources.icons8_hide_100;
+				oldPasswordTextBox.UseSystemPasswordChar = false;
+				showOldPasswordPictureBox.Image = Properties.Resources.icons8_hide_100;
 			}
-			else if (oldpasswordTextBox.UseSystemPasswordChar == false)
+			else if (oldPasswordTextBox.UseSystemPasswordChar == false)
 			{
-				oldpasswordTextBox.UseSystemPasswordChar = true;
-				showoldpawwordPictureBox.Image = Properties.Resources.icons8_eye_100;
+				oldPasswordTextBox.UseSystemPasswordChar = true;
+				showOldPasswordPictureBox.Image = Properties.Resources.icons8_eye_100;
 			}
 		}
 		#endregion /ShowoldpawwordPictureBox_Click
@@ -43,15 +43,15 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 		#region ShownewpasswordPictureBox_Click
 		private void ShownewpasswordPictureBox_Click(object sender, System.EventArgs e)
 		{
-			if (newpasswordTextBox.UseSystemPasswordChar == true)
+			if (newPasswordTextBox.UseSystemPasswordChar == true)
 			{
-				newpasswordTextBox.UseSystemPasswordChar = false;
-				shownewpasswordPictureBox.Image = Properties.Resources.icons8_hide_100;
+				newPasswordTextBox.UseSystemPasswordChar = false;
+				showNewPasswordPictureBox.Image = Properties.Resources.icons8_hide_100;
 			}
-			else if (newpasswordTextBox.UseSystemPasswordChar == false)
+			else if (newPasswordTextBox.UseSystemPasswordChar == false)
 			{
-				newpasswordTextBox.UseSystemPasswordChar = true;
-				shownewpasswordPictureBox.Image = Properties.Resources.icons8_eye_100;
+				newPasswordTextBox.UseSystemPasswordChar = true;
+				showNewPasswordPictureBox.Image = Properties.Resources.icons8_eye_100;
 			}
 		}
 		#endregion /ShownewpasswordPictureBox_Click
@@ -59,15 +59,15 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 		#region ShowconfirmpasswordPictureBox_Click
 		private void ShowconfirmpasswordPictureBox_Click(object sender, System.EventArgs e)
 		{
-			if (confirampasswordTextBox.UseSystemPasswordChar == true)
+			if (confiramPasswordTextBox.UseSystemPasswordChar == true)
 			{
-				confirampasswordTextBox.UseSystemPasswordChar = false;
-				showconfirmpasswordPictureBox.Image = Properties.Resources.icons8_hide_100;
+				confiramPasswordTextBox.UseSystemPasswordChar = false;
+				showConfirmPasswordPictureBox.Image = Properties.Resources.icons8_hide_100;
 			}
-			else if (confirampasswordTextBox.UseSystemPasswordChar == false)
+			else if (confiramPasswordTextBox.UseSystemPasswordChar == false)
 			{
-				confirampasswordTextBox.UseSystemPasswordChar = true;
-				showconfirmpasswordPictureBox.Image = Properties.Resources.icons8_eye_100;
+				confiramPasswordTextBox.UseSystemPasswordChar = true;
+				showConfirmPasswordPictureBox.Image = Properties.Resources.icons8_eye_100;
 			}
 		}
 		#endregion /ShowconfirmpasswordPictureBox_Click
@@ -77,47 +77,47 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 		{
 			string message = string.Empty;
 
-			if (string.IsNullOrWhiteSpace(oldpasswordTextBox.Text))
+			if (string.IsNullOrWhiteSpace(oldPasswordTextBox.Text))
 			{
 				message =
 					"لطفا گذرواژه قدیمی را وارد نمایید.";
 
 				Dtx.Windows.Forms.MessageBox.ShowError(message);
-				oldpasswordTextBox.Focus();
+				oldPasswordTextBox.Focus();
 
 				return;
 			}
 
-			if (string.IsNullOrWhiteSpace(newpasswordTextBox.Text))
+			if (string.IsNullOrWhiteSpace(newPasswordTextBox.Text))
 			{
 				message =
 					"لطفا گذرواژه جدید را وارد نمایید.";
 
 				Dtx.Windows.Forms.MessageBox.ShowError(message);
-				newpasswordTextBox.Focus();
+				newPasswordTextBox.Focus();
 
 				return;
 			}
 
-			if (string.IsNullOrWhiteSpace(confirampasswordTextBox.Text))
+			if (string.IsNullOrWhiteSpace(confiramPasswordTextBox.Text))
 			{
 				message =
 					"لطفا تایید گذرواژه را وارد نمایید.";
 
 				Dtx.Windows.Forms.MessageBox.ShowError(message);
-				confirampasswordTextBox.Focus();
+				confiramPasswordTextBox.Focus();
 
 				return;
 			}
 
-			if (newpasswordTextBox.Text != confirampasswordTextBox.Text)
+			if (newPasswordTextBox.Text != confiramPasswordTextBox.Text)
 			{
 				message =
 					"دو گذرواژه با یکدیگر تطبیق ندارند. لطفا مجددا اقدام نمایید.";
 
 				Dtx.Windows.Forms.MessageBox.ShowError(message);
-				newpasswordTextBox.SelectAll();
-				newpasswordTextBox.Focus();
+				newPasswordTextBox.SelectAll();
+				newPasswordTextBox.Focus();
 
 				return;
 			}
@@ -139,19 +139,19 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 					System.Windows.Forms.Application.Exit();
 				}
 
-				if (string.Compare(user.Password, oldpasswordTextBox.Text, false) != 0)
+				if (string.Compare(user.Password, oldPasswordTextBox.Text, false) != 0)
 				{
 					message =
 						"گذرواژه صحیح نمی باشد. لطفا مجددا اقدام نمایید.";
 
 					Dtx.Windows.Forms.MessageBox.ShowError(message);
-					oldpasswordTextBox.SelectAll();
-					oldpasswordTextBox.Focus();
+					oldPasswordTextBox.SelectAll();
+					oldPasswordTextBox.Focus();
 
 					return;
 				}
 
-				user.Password = newpasswordTextBox.Text;
+				user.Password = newPasswordTextBox.Text;
 
 				databaseContext.SaveChanges();
 

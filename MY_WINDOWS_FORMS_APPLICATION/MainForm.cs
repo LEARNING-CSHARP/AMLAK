@@ -9,9 +9,17 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 			InitializeComponent();
 		}
 
+		#region MainForm_FormClosed
+		private void MainForm_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
+		{
+			System.Windows.Forms.Application.Exit();
+		}
+		#endregion /MainForm_FormClosed
+
 		#region MainForm_Load
 		private void MainForm_Load(object sender, System.EventArgs e)
 		{
+			persianCalendarToolStripStatusLabel.Text = Infrastructure.Utility.ShowWithNameMonthPersianCalenda(System.DateTime.Now);
 		}
 		#endregion /MainForm_Load
 
@@ -36,6 +44,7 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 
 			welcomeToolStripStatusLabel.Text = $"{ name } خوش آمدید.";
 
+			
 			// **************************************************
 			//if (authenticatedUser.IsAdministrator)
 			//{
@@ -117,10 +126,5 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 			usersListForm.Show();
 		}
 		#endregion /DisplayUsersListFormToolStripMenuItem_Click
-
-		private void MainForm_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
-		{
-			System.Windows.Forms.Application.Exit();
-		}
 	}
 }

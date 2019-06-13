@@ -29,18 +29,18 @@
 		private void InitializeComponent()
 		{
 			this.ChangepasswordButton = new Dtx.Windows.Forms.Button();
-			this.showconfirmpasswordPictureBox = new Dtx.Windows.Forms.PictureBox();
-			this.shownewpasswordPictureBox = new Dtx.Windows.Forms.PictureBox();
-			this.showoldpawwordPictureBox = new Dtx.Windows.Forms.PictureBox();
-			this.confirampasswordTextBox = new Dtx.Windows.Forms.TextBox();
+			this.showConfirmPasswordPictureBox = new Dtx.Windows.Forms.PictureBox();
+			this.showNewPasswordPictureBox = new Dtx.Windows.Forms.PictureBox();
+			this.showOldPasswordPictureBox = new Dtx.Windows.Forms.PictureBox();
+			this.confiramPasswordTextBox = new Dtx.Windows.Forms.TextBox();
 			this.confirampasswordLabel = new Dtx.Windows.Forms.Label();
-			this.newpasswordTextBox = new Dtx.Windows.Forms.TextBox();
+			this.newPasswordTextBox = new Dtx.Windows.Forms.TextBox();
 			this.newpasswordLlabel = new Dtx.Windows.Forms.Label();
-			this.oldpasswordTextBox = new Dtx.Windows.Forms.TextBox();
+			this.oldPasswordTextBox = new Dtx.Windows.Forms.TextBox();
 			this.oldpasswordLabel = new Dtx.Windows.Forms.Label();
-			((System.ComponentModel.ISupportInitialize)(this.showconfirmpasswordPictureBox)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.shownewpasswordPictureBox)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.showoldpawwordPictureBox)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.showConfirmPasswordPictureBox)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.showNewPasswordPictureBox)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.showOldPasswordPictureBox)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// ChangepasswordButton
@@ -53,52 +53,52 @@
 			this.ChangepasswordButton.UseVisualStyleBackColor = false;
 			this.ChangepasswordButton.Click += new System.EventHandler(this.ChangepasswordButton_Click);
 			// 
-			// showconfirmpasswordPictureBox
+			// showConfirmPasswordPictureBox
 			// 
-			this.showconfirmpasswordPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.showconfirmpasswordPictureBox.Image = global::MY_WINDOWS_FORMS_APPLICATION.Properties.Resources.icons8_eye_100;
-			this.showconfirmpasswordPictureBox.Location = new System.Drawing.Point(351, 66);
-			this.showconfirmpasswordPictureBox.Name = "showconfirmpasswordPictureBox";
-			this.showconfirmpasswordPictureBox.Size = new System.Drawing.Size(21, 21);
-			this.showconfirmpasswordPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.showconfirmpasswordPictureBox.TabIndex = 17;
-			this.showconfirmpasswordPictureBox.TabStop = false;
-			this.showconfirmpasswordPictureBox.Click += new System.EventHandler(this.ShowconfirmpasswordPictureBox_Click);
+			this.showConfirmPasswordPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.showConfirmPasswordPictureBox.Image = global::MY_WINDOWS_FORMS_APPLICATION.Properties.Resources.icons8_eye_100;
+			this.showConfirmPasswordPictureBox.Location = new System.Drawing.Point(351, 66);
+			this.showConfirmPasswordPictureBox.Name = "showConfirmPasswordPictureBox";
+			this.showConfirmPasswordPictureBox.Size = new System.Drawing.Size(21, 21);
+			this.showConfirmPasswordPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.showConfirmPasswordPictureBox.TabIndex = 17;
+			this.showConfirmPasswordPictureBox.TabStop = false;
+			this.showConfirmPasswordPictureBox.Click += new System.EventHandler(this.ShowconfirmpasswordPictureBox_Click);
 			// 
-			// shownewpasswordPictureBox
+			// showNewPasswordPictureBox
 			// 
-			this.shownewpasswordPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.shownewpasswordPictureBox.Image = global::MY_WINDOWS_FORMS_APPLICATION.Properties.Resources.icons8_eye_100;
-			this.shownewpasswordPictureBox.Location = new System.Drawing.Point(351, 39);
-			this.shownewpasswordPictureBox.Name = "shownewpasswordPictureBox";
-			this.shownewpasswordPictureBox.Size = new System.Drawing.Size(21, 21);
-			this.shownewpasswordPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.shownewpasswordPictureBox.TabIndex = 16;
-			this.shownewpasswordPictureBox.TabStop = false;
-			this.shownewpasswordPictureBox.Click += new System.EventHandler(this.ShownewpasswordPictureBox_Click);
+			this.showNewPasswordPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.showNewPasswordPictureBox.Image = global::MY_WINDOWS_FORMS_APPLICATION.Properties.Resources.icons8_eye_100;
+			this.showNewPasswordPictureBox.Location = new System.Drawing.Point(351, 39);
+			this.showNewPasswordPictureBox.Name = "showNewPasswordPictureBox";
+			this.showNewPasswordPictureBox.Size = new System.Drawing.Size(21, 21);
+			this.showNewPasswordPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.showNewPasswordPictureBox.TabIndex = 16;
+			this.showNewPasswordPictureBox.TabStop = false;
+			this.showNewPasswordPictureBox.Click += new System.EventHandler(this.ShownewpasswordPictureBox_Click);
 			// 
-			// showoldpawwordPictureBox
+			// showOldPasswordPictureBox
 			// 
-			this.showoldpawwordPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.showoldpawwordPictureBox.Image = global::MY_WINDOWS_FORMS_APPLICATION.Properties.Resources.icons8_eye_100;
-			this.showoldpawwordPictureBox.Location = new System.Drawing.Point(351, 12);
-			this.showoldpawwordPictureBox.Name = "showoldpawwordPictureBox";
-			this.showoldpawwordPictureBox.Size = new System.Drawing.Size(21, 21);
-			this.showoldpawwordPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.showoldpawwordPictureBox.TabIndex = 15;
-			this.showoldpawwordPictureBox.TabStop = false;
-			this.showoldpawwordPictureBox.Click += new System.EventHandler(this.ShowoldpawwordPictureBox_Click);
+			this.showOldPasswordPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.showOldPasswordPictureBox.Image = global::MY_WINDOWS_FORMS_APPLICATION.Properties.Resources.icons8_eye_100;
+			this.showOldPasswordPictureBox.Location = new System.Drawing.Point(351, 12);
+			this.showOldPasswordPictureBox.Name = "showOldPasswordPictureBox";
+			this.showOldPasswordPictureBox.Size = new System.Drawing.Size(21, 21);
+			this.showOldPasswordPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.showOldPasswordPictureBox.TabIndex = 15;
+			this.showOldPasswordPictureBox.TabStop = false;
+			this.showOldPasswordPictureBox.Click += new System.EventHandler(this.ShowoldpawwordPictureBox_Click);
 			// 
-			// confirampasswordTextBox
+			// confiramPasswordTextBox
 			// 
-			this.confirampasswordTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			this.confiramPasswordTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.confirampasswordTextBox.Location = new System.Drawing.Point(106, 66);
-			this.confirampasswordTextBox.MaxLength = 40;
-			this.confirampasswordTextBox.Name = "confirampasswordTextBox";
-			this.confirampasswordTextBox.Size = new System.Drawing.Size(239, 21);
-			this.confirampasswordTextBox.TabIndex = 5;
-			this.confirampasswordTextBox.UseSystemPasswordChar = true;
+			this.confiramPasswordTextBox.Location = new System.Drawing.Point(106, 66);
+			this.confiramPasswordTextBox.MaxLength = 40;
+			this.confiramPasswordTextBox.Name = "confiramPasswordTextBox";
+			this.confiramPasswordTextBox.Size = new System.Drawing.Size(239, 21);
+			this.confiramPasswordTextBox.TabIndex = 5;
+			this.confiramPasswordTextBox.UseSystemPasswordChar = true;
 			// 
 			// confirampasswordLabel
 			// 
@@ -111,16 +111,16 @@
 			this.confirampasswordLabel.TabIndex = 4;
 			this.confirampasswordLabel.Text = "&تکرار گذرواژه جدید";
 			// 
-			// newpasswordTextBox
+			// newPasswordTextBox
 			// 
-			this.newpasswordTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			this.newPasswordTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.newpasswordTextBox.Location = new System.Drawing.Point(106, 39);
-			this.newpasswordTextBox.MaxLength = 40;
-			this.newpasswordTextBox.Name = "newpasswordTextBox";
-			this.newpasswordTextBox.Size = new System.Drawing.Size(239, 21);
-			this.newpasswordTextBox.TabIndex = 3;
-			this.newpasswordTextBox.UseSystemPasswordChar = true;
+			this.newPasswordTextBox.Location = new System.Drawing.Point(106, 39);
+			this.newPasswordTextBox.MaxLength = 40;
+			this.newPasswordTextBox.Name = "newPasswordTextBox";
+			this.newPasswordTextBox.Size = new System.Drawing.Size(239, 21);
+			this.newPasswordTextBox.TabIndex = 3;
+			this.newPasswordTextBox.UseSystemPasswordChar = true;
 			// 
 			// newpasswordLlabel
 			// 
@@ -133,16 +133,16 @@
 			this.newpasswordLlabel.TabIndex = 2;
 			this.newpasswordLlabel.Text = "گذرواژه &جدید";
 			// 
-			// oldpasswordTextBox
+			// oldPasswordTextBox
 			// 
-			this.oldpasswordTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			this.oldPasswordTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.oldpasswordTextBox.Location = new System.Drawing.Point(106, 12);
-			this.oldpasswordTextBox.MaxLength = 40;
-			this.oldpasswordTextBox.Name = "oldpasswordTextBox";
-			this.oldpasswordTextBox.Size = new System.Drawing.Size(239, 21);
-			this.oldpasswordTextBox.TabIndex = 1;
-			this.oldpasswordTextBox.UseSystemPasswordChar = true;
+			this.oldPasswordTextBox.Location = new System.Drawing.Point(106, 12);
+			this.oldPasswordTextBox.MaxLength = 40;
+			this.oldPasswordTextBox.Name = "oldPasswordTextBox";
+			this.oldPasswordTextBox.Size = new System.Drawing.Size(239, 21);
+			this.oldPasswordTextBox.TabIndex = 1;
+			this.oldPasswordTextBox.UseSystemPasswordChar = true;
 			// 
 			// oldpasswordLabel
 			// 
@@ -161,14 +161,14 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(384, 146);
-			this.Controls.Add(this.showconfirmpasswordPictureBox);
-			this.Controls.Add(this.shownewpasswordPictureBox);
-			this.Controls.Add(this.showoldpawwordPictureBox);
-			this.Controls.Add(this.confirampasswordTextBox);
+			this.Controls.Add(this.showConfirmPasswordPictureBox);
+			this.Controls.Add(this.showNewPasswordPictureBox);
+			this.Controls.Add(this.showOldPasswordPictureBox);
+			this.Controls.Add(this.confiramPasswordTextBox);
 			this.Controls.Add(this.confirampasswordLabel);
-			this.Controls.Add(this.newpasswordTextBox);
+			this.Controls.Add(this.newPasswordTextBox);
 			this.Controls.Add(this.newpasswordLlabel);
-			this.Controls.Add(this.oldpasswordTextBox);
+			this.Controls.Add(this.oldPasswordTextBox);
 			this.Controls.Add(this.oldpasswordLabel);
 			this.Controls.Add(this.ChangepasswordButton);
 			this.MaximumSize = new System.Drawing.Size(800, 190);
@@ -176,9 +176,9 @@
 			this.Name = "ChangePasswordForm";
 			this.Text = "تغییر گذر واژه";
 			this.Load += new System.EventHandler(this.ChangePasswordForm_Load);
-			((System.ComponentModel.ISupportInitialize)(this.showconfirmpasswordPictureBox)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.shownewpasswordPictureBox)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.showoldpawwordPictureBox)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.showConfirmPasswordPictureBox)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.showNewPasswordPictureBox)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.showOldPasswordPictureBox)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -186,14 +186,14 @@
 
 		#endregion
 		private Dtx.Windows.Forms.Button ChangepasswordButton;
-		private Dtx.Windows.Forms.PictureBox showconfirmpasswordPictureBox;
-		private Dtx.Windows.Forms.PictureBox shownewpasswordPictureBox;
-		private Dtx.Windows.Forms.PictureBox showoldpawwordPictureBox;
-		private Dtx.Windows.Forms.TextBox confirampasswordTextBox;
+		private Dtx.Windows.Forms.PictureBox showConfirmPasswordPictureBox;
+		private Dtx.Windows.Forms.PictureBox showNewPasswordPictureBox;
+		private Dtx.Windows.Forms.PictureBox showOldPasswordPictureBox;
+		private Dtx.Windows.Forms.TextBox confiramPasswordTextBox;
 		private Dtx.Windows.Forms.Label confirampasswordLabel;
-		private Dtx.Windows.Forms.TextBox newpasswordTextBox;
+		private Dtx.Windows.Forms.TextBox newPasswordTextBox;
 		private Dtx.Windows.Forms.Label newpasswordLlabel;
-		private Dtx.Windows.Forms.TextBox oldpasswordTextBox;
+		private Dtx.Windows.Forms.TextBox oldPasswordTextBox;
 		private Dtx.Windows.Forms.Label oldpasswordLabel;
 	}
 }

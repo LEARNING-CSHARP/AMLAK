@@ -9,13 +9,16 @@ namespace MY_WINDOWS_FORMS_APPLICATION.Administrator
 			InitializeComponent();
 		}
 
+		#region UsersListForm_Load
 		private void UsersListForm_Load(object sender, System.EventArgs e)
 		{
 			myDataGridView.ReadOnly = true;
 
 			myDataGridView.CellDoubleClick += MyDataGridView_CellDoubleClick;
 		}
+		#endregion /UsersListForm_Load
 
+		#region MyDataGridView_CellDoubleClick
 		private void MyDataGridView_CellDoubleClick
 			(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
 		{
@@ -58,12 +61,16 @@ namespace MY_WINDOWS_FORMS_APPLICATION.Administrator
 
 			updateUserForm.ShowDialog();
 		}
+		#endregion /MyDataGridView_CellDoubleClick
 
+		#region SearchButton_Click
 		private void SearchButton_Click(object sender, System.EventArgs e)
 		{
 			Search();
 		}
+		#endregion
 
+		#region Search
 		public void Search()
 		{
 			usernameTextBox.Text = Dtx.Text.Utility.FixText(usernameTextBox.Text);
@@ -187,5 +194,6 @@ namespace MY_WINDOWS_FORMS_APPLICATION.Administrator
 				}
 			}
 		}
+		#endregion /Search
 	}
 }
