@@ -19,7 +19,8 @@ namespace MY_WINDOWS_FORMS_APPLICATION
 		#region MainForm_Load
 		private void MainForm_Load(object sender, System.EventArgs e)
 		{
-			persianCalendarToolStripStatusLabel.Text = Infrastructure.Utility.ShowWithNameMonthPersianCalenda(System.DateTime.Now);
+			persianCalendarToolStripStatusLabel.Text =
+				Infrastructure.Utility.ShowWithNameMonthPersianCalenda(System.DateTime.Now);
 		}
 		#endregion /MainForm_Load
 
