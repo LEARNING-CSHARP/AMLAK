@@ -195,5 +195,17 @@ namespace MY_WINDOWS_FORMS_APPLICATION.Administrator
 			}
 		}
 		#endregion /Search
+
+		private void ResetButton_Click(object sender, System.EventArgs e)
+		{
+			fullNameTextBox.Clear();
+			usernameTextBox.Clear();
+			myDataGridView.SelectAll();
+			if (myDataGridView.RowCount != 1)
+			{
+				myDataGridView.Rows.Remove(myDataGridView.CurrentRow);
+			}
+		}
+	
 	}
 }

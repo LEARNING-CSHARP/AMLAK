@@ -28,13 +28,17 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			this.usernameLabel = new Dtx.Windows.Forms.Label();
 			this.fullNameLabel = new Dtx.Windows.Forms.Label();
 			this.usernameTextBox = new Dtx.Windows.Forms.TextBox();
 			this.fullNameTextBox = new Dtx.Windows.Forms.TextBox();
 			this.searchButton = new Dtx.Windows.Forms.Button();
 			this.myDataGridView = new Dtx.Windows.Forms.DataGridView();
+			this.resetButton = new Dtx.Windows.Forms.Button();
+			this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.myDataGridView)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// usernameLabel
@@ -61,7 +65,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.usernameTextBox.Location = new System.Drawing.Point(107, 12);
 			this.usernameTextBox.Name = "usernameTextBox";
-			this.usernameTextBox.Size = new System.Drawing.Size(457, 21);
+			this.usernameTextBox.Size = new System.Drawing.Size(315, 21);
 			this.usernameTextBox.TabIndex = 1;
 			// 
 			// fullNameTextBox
@@ -70,7 +74,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.fullNameTextBox.Location = new System.Drawing.Point(107, 39);
 			this.fullNameTextBox.Name = "fullNameTextBox";
-			this.fullNameTextBox.Size = new System.Drawing.Size(457, 21);
+			this.fullNameTextBox.Size = new System.Drawing.Size(315, 21);
 			this.fullNameTextBox.TabIndex = 3;
 			// 
 			// searchButton
@@ -85,31 +89,50 @@
 			// 
 			// myDataGridView
 			// 
+			this.myDataGridView.AllowUserToOrderColumns = true;
 			this.myDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.myDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.myDataGridView.Location = new System.Drawing.Point(12, 95);
 			this.myDataGridView.Name = "myDataGridView";
-			this.myDataGridView.Size = new System.Drawing.Size(552, 289);
+			this.myDataGridView.Size = new System.Drawing.Size(410, 304);
 			this.myDataGridView.TabIndex = 5;
+			// 
+			// resetButton
+			// 
+			this.resetButton.Location = new System.Drawing.Point(188, 66);
+			this.resetButton.Name = "resetButton";
+			this.resetButton.Size = new System.Drawing.Size(75, 23);
+			this.resetButton.TabIndex = 6;
+			this.resetButton.Text = "حالت اولیه";
+			this.resetButton.UseVisualStyleBackColor = false;
+			this.resetButton.Click += new System.EventHandler(this.ResetButton_Click);
+			// 
+			// userBindingSource
+			// 
+			this.userBindingSource.DataSource = typeof(Models.User);
 			// 
 			// UsersListForm
 			// 
 			this.AcceptButton = this.searchButton;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(576, 396);
+			this.ClientSize = new System.Drawing.Size(434, 411);
+			this.Controls.Add(this.resetButton);
 			this.Controls.Add(this.myDataGridView);
 			this.Controls.Add(this.searchButton);
 			this.Controls.Add(this.fullNameTextBox);
 			this.Controls.Add(this.usernameTextBox);
 			this.Controls.Add(this.fullNameLabel);
 			this.Controls.Add(this.usernameLabel);
+			this.MaximumSize = new System.Drawing.Size(800, 600);
+			this.MinimumSize = new System.Drawing.Size(450, 450);
 			this.Name = "UsersListForm";
 			this.Text = "مدیریت کاربران";
 			this.Load += new System.EventHandler(this.UsersListForm_Load);
 			((System.ComponentModel.ISupportInitialize)(this.myDataGridView)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -123,5 +146,7 @@
 		private Dtx.Windows.Forms.TextBox fullNameTextBox;
 		private Dtx.Windows.Forms.Button searchButton;
 		private Dtx.Windows.Forms.DataGridView myDataGridView;
+		private Dtx.Windows.Forms.Button resetButton;
+		private System.Windows.Forms.BindingSource userBindingSource;
 	}
 }
