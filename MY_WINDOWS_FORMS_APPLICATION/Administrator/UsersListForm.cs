@@ -200,12 +200,7 @@ namespace MY_WINDOWS_FORMS_APPLICATION.Administrator
 		{
 			fullNameTextBox.Clear();
 			usernameTextBox.Clear();
-			myDataGridView.SelectAll();
-			if (myDataGridView.RowCount != 1)
-			{
-				myDataGridView.Rows.Remove(myDataGridView.CurrentRow);
-			}
-		}
-	
+			myDataGridView.DataSource = null;
+		}	
 	}
 }
